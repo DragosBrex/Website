@@ -6,6 +6,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import { ProductPageComponent } from './product-page/product-page.component';
 import { ProductComponent } from './product/product.component';
+import { ProductsService } from './products.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { ProductComponent } from './product/product.component';
       { path: 'products', component: ProductPageComponent }
     ])
   ],
-  providers: [],
+  providers: [
+    ProductsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
