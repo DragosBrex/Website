@@ -7,6 +7,10 @@ import { SignupPageComponent } from './signup-page/signup-page.component';
 import { ProductPageComponent } from './product-page/product-page.component';
 import { ProductComponent } from './product/product.component';
 import { ProductsService } from './products.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -15,13 +19,19 @@ import { ProductsService } from './products.service';
     SignupPageComponent,
     ProductPageComponent,
     ProductComponent,
+    EditProductComponent,
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule,
+    ToastrModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component: ProductPageComponent },
       { path: 'login', component: LoginPageComponent },
       { path: 'signup', component: SignupPageComponent },
+      { path: 'editproduct', component: EditProductComponent },
       { path: 'products', component: ProductPageComponent }
     ])
   ],

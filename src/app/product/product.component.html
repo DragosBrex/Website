@@ -1,4 +1,13 @@
-<ul>
-    <li *ngFor = "let product of products"> {{product}} </li>
-</ul>
+<ul class="list-group">
 
+    <li 
+  
+        *ngFor="let product of products"
+  
+        class="list-group-item">
+  
+        {{ product.name }}
+  
+    </li>
+  
+</ul>

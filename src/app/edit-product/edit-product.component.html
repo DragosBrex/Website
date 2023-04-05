@@ -1,0 +1,33 @@
+
+<div *ngIf = "product">
+    <h2> {{ product.name }}</h2>
+
+    <div>
+        Id: 
+        <input [(ngModel)] = "product.id" placeholder="ID">
+    </div>
+
+    <div>
+        Name: 
+        <input [(ngModel)] = "product.name" placeholder="Name">
+    </div>
+
+    <div>
+        Description: 
+        <input [(ngModel)] = "product.description" placeholder="Description">
+    </div>
+
+    <div>
+        Is Negotiable: 
+        <input [(ngModel)] = "product.isNegotiable" placeholder="Is Negotiable">
+    </div>
+
+    <div>
+        Price: 
+        <input [(ngModel)] = "product.price" placeholder="Price">
+    </div>
+
+    <button (click)="updateProduct(product)" *ngIf="product.id">Save</button>
+    <button (click)="deleteProduct(product)" *ngIf="product.id">Delete</button>
+    <button (click)="createProduct(product)" *ngIf="product.id">Create</button>
+</div> 
