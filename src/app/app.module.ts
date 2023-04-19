@@ -6,11 +6,14 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import { ProductPageComponent } from './product-page/product-page.component';
 import { ProductComponent } from './product/product.component';
-import { ProductsService } from './products.service';
+import { ProductsService } from './services/products.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { FormStyle } from '@angular/common';
+import { AddProductComponent } from './add-product/add-product.component';
+
 
 @NgModule({
   declarations: [
@@ -20,6 +23,7 @@ import { EditProductComponent } from './edit-product/edit-product.component';
     ProductPageComponent,
     ProductComponent,
     EditProductComponent,
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,8 @@ import { EditProductComponent } from './edit-product/edit-product.component';
       { path: 'login', component: LoginPageComponent },
       { path: 'signup', component: SignupPageComponent },
       { path: 'editproduct', component: EditProductComponent },
-      { path: 'products', component: ProductPageComponent }
+      { path: 'products', component: ProductPageComponent },
+      { path: 'addproduct', component: AddProductComponent}
     ])
   ],
   providers: [
