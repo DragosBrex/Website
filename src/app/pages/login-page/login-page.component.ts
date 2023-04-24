@@ -12,7 +12,7 @@ import {AuthService} from "../../services/auth.service";
 
 export class LoginPageComponent {
 
-  @Input() email = ' ';
+  @Input() email = '';
   @Input() password = '';
 
   constructor(private authService: AuthService, private userService : UserService) {}
