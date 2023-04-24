@@ -8,5 +8,4 @@ export class Product
     quantity = 0;
     display = true;
     comments = null;
-
 }

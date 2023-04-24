@@ -10,9 +10,9 @@ import { ProductsService } from './services/products.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
-import { EditProductComponent } from './edit-product/edit-product.component';
 import { FormStyle } from '@angular/common';
 import { AddProductComponent } from './add-product/add-product.component';
+import { MyproductsComponent } from './myproducts/myproducts.component';
 
 
 @NgModule({
@@ -22,8 +22,9 @@ import { AddProductComponent } from './add-product/add-product.component';
     SignupPageComponent,
     ProductPageComponent,
     ProductComponent,
-    EditProductComponent,
+    MyproductsComponent,
     AddProductComponent,
+    MyproductsComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,9 +36,9 @@ import { AddProductComponent } from './add-product/add-product.component';
       { path: '', component: ProductPageComponent },
       { path: 'login', component: LoginPageComponent },
       { path: 'signup', component: SignupPageComponent },
-      { path: 'editproduct', component: EditProductComponent },
+      { path: 'myproducts', component: MyproductsComponent },
       { path: 'products', component: ProductPageComponent },
-      { path: 'addproduct', component: AddProductComponent}
+      { path: 'products/:productId', component: ProductComponent }
     ])
   ],
   providers: [

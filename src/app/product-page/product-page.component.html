@@ -1,5 +1,13 @@
-<p>Produse:</p>
-<h3>
-    <app-product></app-product>
-</h3>
+<ul class="list-group">
 
+    <li 
+  
+        *ngFor="let product of products"
+  
+        class="list-group-item">
+  
+        <a routerLink="/products/{{product.id}}"> {{product.name}} </a>
+  
+    </li>
+  
+</ul>

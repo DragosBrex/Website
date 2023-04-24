@@ -26,6 +26,13 @@ export class ProductsService
 
   }
 
+  public getPostsById(ProductId: string) : Observable<Product>
+  {
+
+    return this.http.get<Product>(this.url + '/' + ProductId);
+
+  }
+
   public addPost(product: ProductRequest) : void
   {      
     const body=JSON.stringify(product);  
