@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from '../services/products.service';
-import { Product } from '../product';
+import { ProductsService } from '../../services/products.service';
+import { Product } from '../../product';
 @Component({
   selector: 'app-product',
   templateUrl: './product-page.component.html',
@@ -12,7 +12,7 @@ export class ProductPageComponent implements OnInit
 
   constructor(private service:ProductsService) {}
 
-  ngOnInit() 
+  ngOnInit()
   {
     this.service
     .getPosts()
