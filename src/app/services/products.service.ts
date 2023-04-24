@@ -12,7 +12,7 @@ import { catchError, retry } from 'rxjs/operators';
 })
 
 @Injectable()
-export class ProductsService 
+export class ProductsService
 {
 
   private url = 'https://trade-box.azurewebsites.net/products';
@@ -21,21 +21,17 @@ export class ProductsService
 
   public getPosts() : Observable<Product[]>
   {
-
     return this.http.get<Product[]>(this.url);
-
   }
 
   public getPostsById(ProductId: string) : Observable<Product>
   {
-
     return this.http.get<Product>(this.url + '/' + ProductId);
-
   }
 
   public addPost(product: ProductRequest) : void
-  {      
-    const body=JSON.stringify(product);  
+  {
+    const body=JSON.stringify(product);
     const headers = { 'Content-Type': 'application/json' , 'accept' : 'text/plain' } ;
     console.log(body);
 

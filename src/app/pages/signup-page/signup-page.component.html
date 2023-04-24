@@ -1,25 +1,26 @@
-<form>
-    <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
-
-      <label for="email"><b>E-Mail</b></label>
-      <input type="text" placeholder="Enter E-Mail" name="email" required>
-  
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-
-      <label for="psw"><b>Repeat Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-  
-      <button type="submit">Sign Up</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
+<div class="signup-container">
+  <h1>Signup</h1>
+  <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" [(ngModel)]="email" required>
     </div>
-  
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
+
+    <div>
+      <label for="username">Name:</label>
+      <input type="text" id="username" name="username" [(ngModel)]="username" required>
     </div>
+
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" [(ngModel)]="password" required>
+    </div>
+
+    <div>
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword" required>
+    </div>
+
+    <button type="submit" [disabled]="!signupForm.form.valid">Signup</button>
   </form>
+</div>
