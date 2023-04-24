@@ -15,17 +15,17 @@ export class LoginPageComponent {
   @Input() email = ' ';
   @Input() password = '';
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private userService : UserService) {}
 
   onSubmit() {
     // Implement login logic here
 
-    let isAuthentificated = this.authService.login(this.email, this.password);
-      if(!isAuthentificated)
-      {
-
-        console.log("login failed");
-      }
+     let user = new User();
+     this.authService.login(this.email, this.password).pipe().subscribe((result: User) =>
+     {
+       user = result
+       this.userService.setCurrentUser(user);
+     });
 
 
   }
