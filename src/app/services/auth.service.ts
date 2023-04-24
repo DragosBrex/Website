@@ -18,13 +18,14 @@ export class AuthService {
     return this.http.get(this.url+'/auth/login?Email='+email+'&Password='+password);
   }
 
-  public signup(user : UserRequest): Observable<User>
+  public signup(user : UserRequest)
   {
     const body=JSON.stringify(user);
     const headers = { 'Content-Type': 'application/json' , 'accept' : 'text/plain' } ;
     console.log(body);
 
-    return this.http.post<UserRequest>(this.url + '/auth/register' , body, {'headers' : headers});
+    return this.http.post<UserRequest>(this.url + '/auth/register' , body, {'headers' : headers}).pipe().subscribe();
+
   }
 
 }
