@@ -13,6 +13,8 @@ import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 import { FormStyle } from '@angular/common';
 import { AddProductComponent } from './add-product/add-product.component';
 import { MyproductsComponent } from './myproducts/myproducts.component';
+import { UserService } from './services/user.serice';
+import { AuthService } from './services/auth.service';
 
 
 @NgModule({
@@ -42,7 +44,9 @@ import { MyproductsComponent } from './myproducts/myproducts.component';
     ])
   ],
   providers: [
-    ProductsService
+    ProductsService,
+    UserService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

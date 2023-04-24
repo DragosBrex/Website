@@ -1,10 +1,13 @@
 import { Injectable, OnInit } from '@angular/core';
-import {User} from "../models/User";
+import { User } from "../models/User";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService implements OnInit{
+
+  constructor(){}
+
   private currentUser?: User;
 
   setCurrentUser(user: User) {
@@ -26,8 +29,12 @@ export class UserService implements OnInit{
     return this.currentUser;
   }
 
-  constructor()  {
+  logout()
+  {
+    localStorage.removeItem('currentUser');
+    this.currentUser = undefined;
 
+    location.reload();
   }
 
   ngOnInit(): void {
@@ -39,5 +46,7 @@ export class UserService implements OnInit{
       }
 
     }
+ 
+    
 
 }
