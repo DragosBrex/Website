@@ -19,7 +19,6 @@ export class SignupPageComponent {
     if(this.password != this.confirmPassword)
     {
       console.log("password did not match confirm password");
-      this.password = '';
       this.confirmPassword='';
       return;
     }
@@ -30,7 +29,6 @@ export class SignupPageComponent {
     user.name = this.username;
 
     this.authService.signup(user);
-
   }
 
 }
