@@ -17,7 +17,7 @@ export class UserService implements OnInit{
 
   getCurrentUser() {
 
-    let res = sessionStorage.getItem('currentUser');
+    let res = localStorage.getItem('currentUser');
     if(res != null)
     {
       this.currentUser = JSON.parse(res);
@@ -32,7 +32,7 @@ export class UserService implements OnInit{
 
   ngOnInit(): void {
 
-      let res = sessionStorage.getItem('currentUser');
+      let res = localStorage.getItem('currentUser');
       if(res != null)
       {
         this.currentUser = JSON.parse(res);
