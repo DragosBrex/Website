@@ -29,6 +29,8 @@ export class SignupPageComponent {
     user.name = this.username;
 
     this.authService.signup(user);
+
+
   }
 
 }

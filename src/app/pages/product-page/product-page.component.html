@@ -1,13 +1,20 @@
-<ul class="list-group">
+<div>
+  <div *ngIf="user != undefined">
+    <h1>{{user.name}}</h1>
+  </div>
 
-    <li 
-  
-        *ngFor="let product of products"
-  
-        class="list-group-item">
-  
-        <a routerLink="/products/{{product.id}}"> {{product.name}} </a>
-  
+  <ul class="list-group">
+
+    <li
+
+      *ngFor="let product of products"
+
+      class="list-group-item">
+
+      <a routerLink="/products/{{product.id}}"> {{product.name}} </a>
+
     </li>
-  
-</ul>
+
+  </ul>
+</div>
+
