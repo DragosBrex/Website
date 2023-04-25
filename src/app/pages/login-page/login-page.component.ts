@@ -31,9 +31,8 @@ export class LoginPageComponent {
        ).subscribe((u)=>
       {
        user = u;
-       this.router.navigate(['home']);
+       this.router.navigate(['home']).then(() => {window.location.reload();});
       });
-
   }
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {

@@ -16,6 +16,7 @@ export class UserService implements OnInit{
     localStorage.setItem('currentUser', JSON.stringify(user));
 
     console.log(user);
+
   }
 
   getCurrentUser() {
