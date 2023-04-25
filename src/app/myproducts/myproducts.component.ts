@@ -16,11 +16,10 @@ export class MyproductsComponent
 {
   products: Product[] = [];
   user? : User;
-  constructor(private service:SellerProductsService){}
 
   product = new ProductRequest;
 
-  constructor(private service:ProductsService, private userService: UserService) {}
+  constructor(private service:SellerProductsService, private userService: UserService) {}
 
   add(product : ProductRequest ) : any
   {
@@ -32,7 +31,7 @@ export class MyproductsComponent
     this.user = this.userService.getCurrentUser();
 
     this.service
-    .getPostsBySeller(this.user?.id!)
+    .getProductsBySellerId(this.user?.id!)
     .subscribe((result: Product[]) => (this.products = result));
   }
 }
