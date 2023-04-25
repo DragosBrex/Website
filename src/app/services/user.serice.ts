@@ -16,6 +16,7 @@ export class UserService implements OnInit{
     localStorage.setItem('currentUser', JSON.stringify(user));
 
     console.log(user);
+
   }
 
   getCurrentUser() {
@@ -44,9 +45,5 @@ export class UserService implements OnInit{
       {
         this.currentUser = JSON.parse(res);
       }
-
     }
- 
-    
-
 }
