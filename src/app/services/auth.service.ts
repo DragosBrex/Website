@@ -1,21 +1,44 @@
 import { Injectable } from '@angular/core';
 import {User} from "../models/User";
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 import {UserService} from "./user.serice";
 import {UserRequest} from "../models/UserRequest";
-import {Product} from "../models/product";
+import { map } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private url = 'https://trade-box.azurewebsites.net';
-  constructor(private http: HttpClient, private userService : UserService) { }
+  private userSubject: BehaviorSubject<any>;
+  public user: Observable<any>;
 
+  private url = 'https://trade-box.azurewebsites.net';
+  constructor(private http: HttpClient)
+  {
+    this.userSubject = new BehaviorSubject<any>(null);
+    this.user = this.userSubject.asObservable();
+  }
+
+  public get currentUserValue(): any {
+    return this.userSubject.value;
+  }
   public login(email: string, password: string): Observable<User> {
-    return this.http.get(this.url+'/auth/login?Email='+email+'&Password='+password);
+
+    return this.http.get<User>(`${this.url}/auth/login?Email=${email}&Password=${password}`)
+      .pipe(map (u => {
+        localStorage.setItem('currentUser', JSON.stringify(u));
+        console.log(u);
+        return u;
+      }));
+  }
+
+  logout() {
+    // remove user from local storage and set current user to null
+    localStorage.removeItem('currentUser');
+    this.userSubject.next(null);
   }
 
   public signup(user : UserRequest)

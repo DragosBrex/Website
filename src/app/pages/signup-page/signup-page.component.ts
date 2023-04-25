@@ -28,8 +28,7 @@ export class SignupPageComponent {
     user.password = this.password;
     user.name = this.username;
 
-    this.authService.signup(user);
-
+    let res = this.authService.signup(user);
 
   }
 
