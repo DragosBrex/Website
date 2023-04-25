@@ -15,6 +15,7 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { MyproductsComponent } from './myproducts/myproducts.component';
 import { UserService } from './services/user.serice';
 import { AuthService } from './services/auth.service';
+import { SellerPageComponent } from './pages/seller-page/seller-page.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { AuthService } from './services/auth.service';
     MyproductsComponent,
     AddProductComponent,
     MyproductsComponent,
+    SellerPageComponent,
   ],
   imports: [
     BrowserModule,
