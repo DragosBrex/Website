@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import {UserRequest} from "../../models/UserRequest";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-signup-page',
@@ -13,7 +14,7 @@ export class SignupPageComponent {
   @Input() password = '';
   @Input() confirmPassword = '';
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
   }
   onSubmit() {
     if(this.password != this.confirmPassword)
@@ -28,8 +29,11 @@ export class SignupPageComponent {
     user.password = this.password;
     user.name = this.username;
 
-    this.authService.signup(user);
-
+    this.authService.signup(user).pipe().subscribe(u=>
+    {
+      console.log(`user: \n${u.id} \n${u.name} \n${u.email} \n${u.roles} `);
+      this.router.navigate(['home']);
+    });
 
   }
 

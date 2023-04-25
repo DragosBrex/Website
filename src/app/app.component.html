@@ -2,17 +2,15 @@
     <li><a routerLink="products">Home</a></li>
     <li><a routerLink="myproducts">My Products</a></li>
 
-    <div *ngIf="showLogIn">
+    <div *ngIf="user == undefined">
         <li class = "login"><a routerLink="login">Log In</a></li>
         <li class = "signup"><a routerLink="signup">Sign Up</a></li>
-    </div>  
+    </div>
 
-    <div *ngIf="!showLogIn">
+    <div *ngIf="user != undefined">
         <li class = "logout"><a (click)="userService.logout()" routerLink="products">Log Out</a></li>
     </div>
 
 </ul>
-
-<button (click)="toggleLinks()"> ASA </button>
 
 <router-outlet></router-outlet>
