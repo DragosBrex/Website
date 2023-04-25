@@ -12,8 +12,8 @@ import { map } from 'rxjs/operators';
 })
 export class AuthService {
 
-  private userSubject?: BehaviorSubject<User>;
-  public user: Observable<User>;
+  private userSubject!: BehaviorSubject<User>;
+  public user!: Observable<User>;
 
   private url = 'https://trade-box.azurewebsites.net';
   constructor(private http: HttpClient)
@@ -23,7 +23,7 @@ export class AuthService {
     this.user = this.userSubject.asObservable();
   }
 
-  public get currentUserValue(): User | null {
+  public get currentUserValue(): User {
     // @ts-ignore
     return this.userSubject.value;
   }
@@ -44,14 +44,18 @@ export class AuthService {
     this.userSubject.next(null);
   }
 
-  public signup(user : UserRequest)
+  public signup(user : UserRequest): Observable<User>
   {
     const body=JSON.stringify(user);
     const headers = { 'Content-Type': 'application/json' , 'accept' : 'text/plain' } ;
     console.log(body);
 
-    return this.http.post<UserRequest>(this.url + '/auth/register' , body, {'headers' : headers}).pipe().subscribe();
-
+    return this.http.post<UserRequest>(this.url + '/auth/register' , body, {'headers' : headers})
+      .pipe(map (u => {
+      localStorage.setItem('currentUser', JSON.stringify(u));
+      console.log(u);
+      return u;
+    }));
   }
 
 }
