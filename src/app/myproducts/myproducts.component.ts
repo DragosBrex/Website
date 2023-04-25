@@ -3,6 +3,7 @@ import { Product } from '../models/product';
 import { ProductsService } from '../services/products.service';
 import { ProductRequest } from '../models/productsRequest';
 import { NgModel } from '@angular/forms';
+import {SellerProductsService} from "../services/seller-product.service";
 
 @Component({
   selector: 'app-edit-product',
@@ -11,7 +12,7 @@ import { NgModel } from '@angular/forms';
 })
 export class MyproductsComponent
 {
-  constructor(private service:ProductsService){}
+  constructor(private service:SellerProductsService){}
 
   product = new ProductRequest;
 
@@ -21,6 +22,6 @@ export class MyproductsComponent
   }
 
   ngOnInit(): void {
-    
+
   }
 }

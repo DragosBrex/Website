@@ -8,7 +8,7 @@ export class UserService implements OnInit{
 
   constructor(){}
 
-  private currentUser?: User;
+  private currentUser? : User;
 
   setCurrentUser(user: User) {
 

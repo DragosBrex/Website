@@ -6,7 +6,6 @@ import {UserService} from "./user.serice";
 import {UserRequest} from "../models/UserRequest";
 import { map } from 'rxjs/operators';
 
-
 @Injectable({
   providedIn: 'root'
 })

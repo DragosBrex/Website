@@ -17,6 +17,7 @@ import { UserService } from './services/user.serice';
 import { AuthService } from './services/auth.service';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import {AppRoutingModule} from "./app-routing.module";
+import {SellerProductsService} from "./services/seller-product.service";
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import {AppRoutingModule} from "./app-routing.module";
     ToastrModule.forRoot(),
   ],
   providers: [
+    SellerProductsService,
     ProductsService,
     UserService,
     AuthService
