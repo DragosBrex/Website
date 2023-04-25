@@ -10,6 +10,7 @@ import {Injectable} from "@angular/core";
 @Injectable({
   providedIn: 'root'
 })
+
 export class SellerProductsService
 {
   private url = 'https://trade-box.azurewebsites.net/products/seller';

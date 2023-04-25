@@ -15,7 +15,7 @@ import {SellerProductsService} from "../services/seller-product.service";
 
 export class AddProductComponent implements OnInit {
 
-  constructor(private service:SellerProductsService){}
+  constructor(private service : SellerProductsService){}
 
   product = new ProductRequest;
 

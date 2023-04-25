@@ -12,6 +12,7 @@ import { User } from '../models/User';
   templateUrl: './myproducts.component.html',
   styleUrls: ['./myproducts.component.css']
 })
+
 export class MyproductsComponent
 {
   products: Product[] = [];
