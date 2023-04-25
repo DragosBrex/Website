@@ -12,17 +12,19 @@ import { map } from 'rxjs/operators';
 })
 export class AuthService {
 
-  private userSubject: BehaviorSubject<any>;
-  public user: Observable<any>;
+  private userSubject?: BehaviorSubject<User>;
+  public user: Observable<User>;
 
   private url = 'https://trade-box.azurewebsites.net';
   constructor(private http: HttpClient)
   {
-    this.userSubject = new BehaviorSubject<any>(null);
+    // @ts-ignore
+    this.userSubject = new BehaviorSubject<User>(null);
     this.user = this.userSubject.asObservable();
   }
 
-  public get currentUserValue(): any {
+  public get currentUserValue(): User | null {
+    // @ts-ignore
     return this.userSubject.value;
   }
   public login(email: string, password: string): Observable<User> {
@@ -38,6 +40,7 @@ export class AuthService {
   logout() {
     // remove user from local storage and set current user to null
     localStorage.removeItem('currentUser');
+    // @ts-ignore
     this.userSubject.next(null);
   }
 
