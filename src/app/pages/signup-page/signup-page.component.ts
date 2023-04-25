@@ -32,7 +32,7 @@ export class SignupPageComponent {
     this.authService.signup(user).pipe().subscribe(u=>
     {
       console.log(`user: \n${u.id} \n${u.name} \n${u.email} \n${u.roles} `);
-      this.router.navigate(['home']);
+      this.router.navigate(['home']).then(() => {window.location.reload();});
     });
 
   }

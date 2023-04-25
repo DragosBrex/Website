@@ -29,6 +29,11 @@ export class ProductsService
     return this.http.get<Product>(this.url + '/' + ProductId);
   }
 
+  public getPostsBySeller(SellerId: string) : Observable<Product[]>
+  {
+    return this.http.get<Product[]>(this.url + '/seller/' + SellerId);
+  }
+
   public addPost(product: ProductRequest) : void
   {
     const body=JSON.stringify(product);

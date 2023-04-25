@@ -1,26 +1,21 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { ActiveToast } from 'ngx-toastr';
 import { Observable } from 'rxjs';
+import { UserService } from '../services/user.serice';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RoleGuardGuard implements CanActivate {
+
+export class RoleGuardGuard implements CanActivate 
+{
+  constructor(private user: UserService){}
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.isAuthorized(route);
-  }
 
-  private isAuthorized(route: ActivatedRouteSnapshot): boolean
-  {
-    const roles = ['Admin', 'Seller'];
-    const expectedRoles = route.data['expectedRoles'];
-
-    const roleMatches = roles.findIndex(role => expectedRoles.indexOf(role) !== -1);
-
-    return roleMatches >= 0 ? true : false; 
+    return this.user.getRole() == route.data['role'];
   }
   
 }
