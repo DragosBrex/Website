@@ -17,15 +17,20 @@ export class LoginPageComponent {
 
   constructor(private authService: AuthService, private userService : UserService) {}
 
-  onSubmit() {
+  async onSubmit() {
     // Implement login logic here
 
      let user = new User();
-     this.authService.login(this.email, this.password).pipe().subscribe((result: User) =>
-     {
-       user = result
-       this.userService.setCurrentUser(user);
-     });
+
+     await this.authService.login(this.email, this.password).pipe().subscribe(u=>
+      {
+       user = u;
+       if(this.authService.currentUserValue == null)
+       {
+         console.log("login failed");
+       }
+      }
+     );
 
 
   }

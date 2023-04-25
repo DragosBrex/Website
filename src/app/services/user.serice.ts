@@ -44,9 +44,5 @@ export class UserService implements OnInit{
       {
         this.currentUser = JSON.parse(res);
       }
-
     }
- 
-    
-
 }
