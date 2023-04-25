@@ -15,6 +15,9 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { MyproductsComponent } from './myproducts/myproducts.component';
 import { UserService } from './services/user.serice';
 import { AuthService } from './services/auth.service';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import {AppRoutingModule} from "./app-routing.module";
+import {SellerProductsService} from "./services/seller-product.service";
 
 
 @NgModule({
@@ -27,23 +30,18 @@ import { AuthService } from './services/auth.service';
     MyproductsComponent,
     AddProductComponent,
     MyproductsComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    AppRoutingModule,
     ToastrModule.forRoot(),
-    RouterModule.forRoot([
-      { path: '', component: ProductPageComponent },
-      { path: 'login', component: LoginPageComponent },
-      { path: 'signup', component: SignupPageComponent },
-      { path: 'myproducts', component: MyproductsComponent },
-      { path: 'products', component: ProductPageComponent },
-      { path: 'products/:productId', component: ProductComponent }
-    ])
   ],
   providers: [
+    SellerProductsService,
     ProductsService,
     UserService,
     AuthService

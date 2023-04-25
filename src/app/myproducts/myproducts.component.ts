@@ -3,6 +3,9 @@ import { Product } from '../models/product';
 import { ProductsService } from '../services/products.service';
 import { ProductRequest } from '../models/productsRequest';
 import { NgModel } from '@angular/forms';
+import {SellerProductsService} from "../services/seller-product.service";
+import { UserService } from '../services/user.serice';
+import { User } from '../models/User';
 
 @Component({
   selector: 'app-edit-product',
@@ -11,16 +14,24 @@ import { NgModel } from '@angular/forms';
 })
 export class MyproductsComponent
 {
-  constructor(private service:ProductsService){}
+  products: Product[] = [];
+  user? : User;
 
   product = new ProductRequest;
+
+  constructor(private service:SellerProductsService, private userService: UserService) {}
 
   add(product : ProductRequest ) : any
   {
     return this.service.addPost(this.product);
   }
 
-  ngOnInit(): void {
-    
+  ngOnInit()
+  {
+    this.user = this.userService.getCurrentUser();
+
+    this.service
+    .getProductsBySellerId(this.user?.id!)
+    .subscribe((result: Product[]) => (this.products = result));
   }
 }

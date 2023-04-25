@@ -1,1 +1,14 @@
 <app-add-product></app-add-product>
+
+<h2>Acestea sunt produsele tale:</h2>
+<ul>
+
+    <li *ngFor="let product of products">
+
+      <a> {{product.name}} </a>
+
+    </li>
+
+</ul>
+
+    

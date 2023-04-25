@@ -16,7 +16,6 @@ export class AppComponent implements OnInit, OnChanges
 
   ngOnInit(): void {
     this.user = this.userService.getCurrentUser();
-
   }
 
   ngOnChanges(changes: User) {

@@ -3,6 +3,7 @@ import { Product } from '../models/product';
 import { ProductsService } from '../services/products.service';
 import { ProductRequest } from '../models/productsRequest';
 import {NgModel} from '@angular/forms';
+import {SellerProductsService} from "../services/seller-product.service";
 
 @Component({
   selector: 'app-add-product',
@@ -14,17 +15,17 @@ import {NgModel} from '@angular/forms';
 
 export class AddProductComponent implements OnInit {
 
-  constructor(private service:ProductsService){}
+  constructor(private service:SellerProductsService){}
 
   product = new ProductRequest;
 
-  add(product : ProductRequest ) : any
+  add(product : ProductRequest )
   {
-    return this.service.addPost(this.product);
+    return this.service.addPost(this.product).pipe().subscribe();
   }
 
   ngOnInit(): void {
-    
+
   }
 
 }
