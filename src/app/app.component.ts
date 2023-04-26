@@ -11,11 +11,14 @@ export class AppComponent implements OnInit, OnChanges
 {
   title = 'magazin';
   @Input() user? : User;
+  @Input() roles : string[] = [];
   constructor(public userService : UserService) {
   }
 
   ngOnInit(): void {
     this.user = this.userService.getCurrentUser();
+    this.user?.roles!.forEach(r => this.roles?.push(<string>r.name))
+    this.roles.forEach(r=>console.log(r));
   }
 
   ngOnChanges(changes: User) {

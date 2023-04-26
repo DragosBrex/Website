@@ -9,8 +9,7 @@ import { ProductComponent } from './components/product/product.component';
 import { ProductsService } from './services/products.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
-import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
-import { FormStyle } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { MyproductsComponent } from './pages/myproducts/myproducts.component';
 import { UserService } from './services/user.serice';
@@ -19,10 +18,12 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {SellerProductsService} from "./services/seller-product.service";
 import {SellerPageComponent} from "./pages/seller-page/seller-page.component";
+import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 
 
 @NgModule({
   declarations: [
+    AdminPageComponent,
     SellerPageComponent,
     AppComponent,
     LoginPageComponent,
@@ -33,6 +34,7 @@ import {SellerPageComponent} from "./pages/seller-page/seller-page.component";
     AddProductComponent,
     MyproductsComponent,
     NotFoundComponent,
+    AdminPageComponent,
   ],
   imports: [
     BrowserModule,

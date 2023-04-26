@@ -7,7 +7,7 @@ import { UserService } from '../services/user.serice';
   providedIn: 'root'
 })
 
-export class RoleGuardGuard implements CanActivate 
+export class RoleGuardGuard implements CanActivate
 {
   constructor(private user: UserService){}
 
@@ -15,7 +15,7 @@ export class RoleGuardGuard implements CanActivate
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    return this.user.getRole() == route.data['role'];
+    return this.user.getRole(route.data['role']);
   }
-  
+
 }

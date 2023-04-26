@@ -1,11 +1,15 @@
 <ul class = "nav">
     <li><a routerLink="home">Home</a></li>
 
-    <div *ngIf="this.user?.roles![0].name == 'Seller'">
-        <li><a routerLink="myproducts">My Products</a></li>
-    </div>  
+    <div *ngIf="this.userService.getRole('Seller')">
+      <li><a routerLink="myproducts">My Products</a></li>
+    </div>
 
-    <div *ngIf="user == undefined">
+    <div *ngIf="this.userService.getRole('Admin')">
+      <li><a routerLink="admin/page">Admin</a></li>
+    </div>
+
+  <div *ngIf="user == undefined">
         <li class = "login"><a routerLink="login">Log In</a></li>
         <li class = "signup"><a routerLink="signup">Sign Up</a></li>
     </div>
