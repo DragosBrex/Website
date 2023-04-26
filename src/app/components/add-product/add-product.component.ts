@@ -1,9 +1,7 @@
-import { Component , OnInit} from '@angular/core';
-import { Product } from '../../models/product';
-import { ProductsService } from '../../services/products.service';
-import { ProductRequest } from '../../models/productsRequest';
-import {NgModel} from '@angular/forms';
+import {Component, Input, OnInit} from '@angular/core';
 import {SellerProductsService} from "../../services/seller-product.service";
+import {Route, Router} from "@angular/router";
+import {empty} from "rxjs";
 
 @Component({
   selector: 'app-add-product',
@@ -11,21 +9,43 @@ import {SellerProductsService} from "../../services/seller-product.service";
   styleUrls: ['./add-product.component.css']
 })
 
-
-
 export class AddProductComponent implements OnInit {
 
-  constructor(private service : SellerProductsService){}
+  @Input() name!: string;
+  @Input() description!: string;
+  @Input() price!: number;
+  @Input() image!: string;
+  @Input() quantity!: number;
+  @Input() isNegotiable!: boolean;
+  @Input() display!: boolean;
+  constructor(private service : SellerProductsService, private router : Router){}
 
-  product = new ProductRequest;
+  onSubmit() {
+    const newProduct = {
+      name: this.name,
+      description: this.description,
+      isNegotiable : this.isNegotiable,
+      price: this.price,
+      quantity: this.quantity,
+      display : this.display
+    };
 
-  add(product : ProductRequest )
-  {
-    return this.service.addPost(this.product).pipe().subscribe();
+    this.service.addPost(newProduct).subscribe((data) =>
+    {
+      alert('Product added successfully!');
+      console.log(data);
+      this.router.navigate(['seller/page']).then(() => {window.location.reload();});
+    })
+
+    this.ngOnInit();
   }
-
   ngOnInit(): void {
-
+    this.name = '';
+    this.description = '';
+    this.isNegotiable = false;
+    this.price = 0;
+    this.quantity = 0;
+    this.display = false;
   }
 
 }

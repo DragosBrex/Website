@@ -23,7 +23,7 @@ export class ProductPageComponent implements OnInit
     .subscribe((result: Product[]) => {
       this.products = result;
       // @ts-ignore
-      this.products.forEach(element => console.log(element.user)) // da undefined
+      this.products.forEach(element => console.log(element.seller.name)) // da undefined
     });
 
   }

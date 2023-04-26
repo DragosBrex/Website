@@ -1,0 +1,48 @@
+.add-product-container {
+  margin: 50px 100px;
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px #ccc;
+  padding: 20px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+textarea {
+  height: 100px;
+}
+
+.add-product-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-product-button:hover {
+  background-color: #3e8e41;
+}
