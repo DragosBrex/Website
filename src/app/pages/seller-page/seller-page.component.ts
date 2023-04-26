@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/product';
-import { ProductsService } from '../../services/products.service';
 import { ProductRequest } from 'src/app/models/productsRequest';
-import { Observable } from 'rxjs';
+import {SellerProductsService} from "../../services/seller-product.service";
+import {UserService} from "../../services/user.serice";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-seller-page',
@@ -13,22 +14,25 @@ import { Observable } from 'rxjs';
 export class SellerPageComponent implements OnInit {
   products: Product[] = [];
 
-  constructor(private productService: ProductsService) { }
+  constructor(private productService: SellerProductsService,
+              private userService : UserService,
+              private router : Router) { }
 
   ngOnInit(): void {
-    this.productService.getProductsBySellerId('123').subscribe(products => {
+    this.productService.getProductsBySellerId(this.userService.getCurrentUser()?.id).subscribe(products => {
       this.products = products;
     });
   }
 
   //delele product
   deleteProduct(product: Product) {
-    this.productService.deleteProduct(product.id).subscribe(
+    this.productService.deleteProduct(product.id).pipe().subscribe(
       (data) => {
-        console.log('Product deleted successfully');
+        console.log(`Product deleted successfully id=${data}`);
         // remove the deleted product from the products list
         const index = this.products.indexOf(product);
         this.products.splice(index, 1);
+        //this.router.navigate(['seller/page']).then(() => {window.location.reload();})
       },
       (error) => {
         console.error('Error deleting product', error);

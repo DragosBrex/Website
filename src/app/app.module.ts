@@ -18,10 +18,12 @@ import { AuthService } from './services/auth.service';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {SellerProductsService} from "./services/seller-product.service";
+import {SellerPageComponent} from "./pages/seller-page/seller-page.component";
 
 
 @NgModule({
   declarations: [
+    SellerPageComponent,
     AppComponent,
     LoginPageComponent,
     SignupPageComponent,

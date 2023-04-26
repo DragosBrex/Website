@@ -3,9 +3,9 @@ import {HttpClient} from "@angular/common/http";
 import {ProductRequest} from "../models/productsRequest";
 import {Observable, throwError} from "rxjs";
 import {Product} from "../models/product";
-import {catchError} from "rxjs/operators";
 import {User} from "../models/User";
 import {Injectable} from "@angular/core";
+
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +29,7 @@ export class SellerProductsService
     return this.http.post<Product>(`${this.url}/${this.seller.id}`, body, { headers: headers }).pipe().subscribe();
   }
 
-  public getProductsBySellerId(sellerId: string): Observable<Product[]> {
+  public getProductsBySellerId(sellerId: string | undefined): Observable<Product[]> {
     const url = `${this.url}/${sellerId}`;
     return this.http.get<Product[]>(url);
   }

@@ -33,6 +33,6 @@ export class MyproductsComponent
 
     this.service
     .getProductsBySellerId(this.user?.id!)
-    .subscribe((result: Product[]) => (this.products = result));
+      .subscribe((result: Product[]) => (this.products = result));
   }
 }

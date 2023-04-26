@@ -1,16 +1,10 @@
 <div>
-  <ul class="list-group">
-
-    <li
-
-      *ngFor="let product of products"
-
-      class="list-group-item">
-
-      <a routerLink="/products/{{product.id}}"> {{product.name}} </a>
-
-    </li>
-
-  </ul>
+  <product-description
+    *ngFor="let product of products"
+    [name]="product.name"
+    [description]="product.description"
+    [price]="product.price"
+    [quantity]="product.quantity"
+  ></product-description>
 </div>
 

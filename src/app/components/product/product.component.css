@@ -1,0 +1,12 @@
+.product {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+h2 {
+  margin-top: 0;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}

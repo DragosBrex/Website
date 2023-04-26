@@ -23,3 +23,15 @@
   </tr>
   </tbody>
 </table>
+
+<b></b>
+
+<div>
+  <product-description
+    *ngFor="let product of products"
+    [name]="product.name"
+    [description]="product.description"
+    [price]="product.price"
+    [quantity]="product.quantity"
+  ></product-description>
+</div>
