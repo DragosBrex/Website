@@ -13,16 +13,18 @@ import { NgFor } from '@angular/common';
 export class ProductPageComponent implements OnInit
 {
   products: Product[] = [];
-  user? : User;
-  
+
   constructor(private service:ProductsService, private userService: UserService) {}
 
   ngOnInit()
   {
     this.service
     .getPosts()
-    .subscribe((result: Product[]) => (this.products = result));
+    .subscribe((result: Product[]) => {
+      this.products = result;
+      // @ts-ignore
+      this.products.forEach(element => console.log(element.user)) // da undefined
+    });
 
-    this.user = this.userService.getCurrentUser();
   }
 }

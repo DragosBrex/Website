@@ -4,16 +4,14 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import {ProductPageComponent} from "./pages/product-page/product-page.component";
 import {LoginPageComponent} from "./pages/login-page/login-page.component";
 import {SignupPageComponent} from "./pages/signup-page/signup-page.component";
-import {MyproductsComponent} from "./myproducts/myproducts.component";
+import {MyproductsComponent} from "./pages/myproducts/myproducts.component";
 import {ProductComponent} from "./components/product/product.component";
-import { AuthService } from './services/auth.service';
-import { Role } from './models/Role';
 import { RoleGuardGuard } from './guards/role-guard.guard';
 import {SellerPageComponent} from "./pages/seller-page/seller-page.component";
 
 const routes: Routes = [
-    {path: '',component:ProductPageComponent },
-    {path: 'home',component:ProductPageComponent },
+    { path: '',component:ProductPageComponent },
+    { path: 'home',component:ProductPageComponent },
     { path:'login', component: LoginPageComponent },
     { path: 'signup', component: SignupPageComponent },
     { path: 'myproducts', component: MyproductsComponent, canActivate: [RoleGuardGuard], data: { role: ['Seller']}},

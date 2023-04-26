@@ -1,9 +1,9 @@
 import { Component , OnInit} from '@angular/core';
-import { Product } from '../models/product';
-import { ProductsService } from '../services/products.service';
-import { ProductRequest } from '../models/productsRequest';
+import { Product } from '../../models/product';
+import { ProductsService } from '../../services/products.service';
+import { ProductRequest } from '../../models/productsRequest';
 import {NgModel} from '@angular/forms';
-import {SellerProductsService} from "../services/seller-product.service";
+import {SellerProductsService} from "../../services/seller-product.service";
 
 @Component({
   selector: 'app-add-product',

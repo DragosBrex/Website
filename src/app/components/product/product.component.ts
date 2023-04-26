@@ -14,6 +14,8 @@ export class ProductComponent
   @Input() price! : number;
   @Input() quantity! : number;
 
+  @Input() seller! : string;
+
   constructor(private activeRoute:ActivatedRoute)
   {
 
