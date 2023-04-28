@@ -1,3 +1,5 @@
+import {User} from "./User";
+
 export class Product
 {
     id = "";
@@ -8,5 +10,5 @@ export class Product
     quantity = 0;
     display = true;
     comments = null;
-
+    seller! : User;
 }

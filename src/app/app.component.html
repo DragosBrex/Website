@@ -1,6 +1,9 @@
 <ul class = "nav">
-    <li><a routerLink="products">Home</a></li>
-    <li><a routerLink="myproducts">My Products</a></li>
+    <li><a routerLink="home">Home</a></li>
+
+    <div *ngIf="this.user?.roles![0].name == 'Seller'">
+        <li><a routerLink="myproducts">My Products</a></li>
+    </div>  
 
     <div *ngIf="user == undefined">
         <li class = "login"><a routerLink="login">Log In</a></li>
@@ -9,6 +12,7 @@
 
     <div *ngIf="user != undefined">
         <li class = "logout"><a (click)="userService.logout()" routerLink="products">Log Out</a></li>
+        <li class = "name"><a routerLink="user-page"> {{user.name}}</a></li>
     </div>
 
 </ul>

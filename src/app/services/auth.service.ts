@@ -6,23 +6,24 @@ import {UserService} from "./user.serice";
 import {UserRequest} from "../models/UserRequest";
 import { map } from 'rxjs/operators';
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private userSubject: BehaviorSubject<any>;
-  public user: Observable<any>;
+  private userSubject!: BehaviorSubject<User>;
+  public user!: Observable<User>;
 
   private url = 'https://trade-box.azurewebsites.net';
   constructor(private http: HttpClient)
   {
-    this.userSubject = new BehaviorSubject<any>(null);
+    // @ts-ignore
+    this.userSubject = new BehaviorSubject<User>(null);
     this.user = this.userSubject.asObservable();
   }
 
-  public get currentUserValue(): any {
+  public get currentUserValue(): User {
+    // @ts-ignore
     return this.userSubject.value;
   }
   public login(email: string, password: string): Observable<User> {
@@ -38,17 +39,22 @@ export class AuthService {
   logout() {
     // remove user from local storage and set current user to null
     localStorage.removeItem('currentUser');
+    // @ts-ignore
     this.userSubject.next(null);
   }
 
-  public signup(user : UserRequest)
+  public signup(user : UserRequest): Observable<User>
   {
     const body=JSON.stringify(user);
     const headers = { 'Content-Type': 'application/json' , 'accept' : 'text/plain' } ;
     console.log(body);
 
-    return this.http.post<UserRequest>(this.url + '/auth/register' , body, {'headers' : headers}).pipe().subscribe();
-
+    return this.http.post<UserRequest>(this.url + '/auth/register' , body, {'headers' : headers})
+      .pipe(map (u => {
+      localStorage.setItem('currentUser', JSON.stringify(u));
+      console.log(u);
+      return u;
+    }));
   }
 
 }

@@ -3,6 +3,8 @@ import { ProductsService } from '../../services/products.service';
 import { Product } from '../../models/product';
 import {UserService} from "../../services/user.serice";
 import {User} from "../../models/User";
+import {Role} from "../../models/Role";
+import { NgFor } from '@angular/common';
 @Component({
   selector: 'app-product',
   templateUrl: './product-page.component.html',
@@ -11,15 +13,18 @@ import {User} from "../../models/User";
 export class ProductPageComponent implements OnInit
 {
   products: Product[] = [];
-  user? : User;
+
   constructor(private service:ProductsService, private userService: UserService) {}
 
   ngOnInit()
   {
     this.service
     .getPosts()
-    .subscribe((result: Product[]) => (this.products = result));
+    .subscribe((result: Product[]) => {
+      this.products = result;
+      // @ts-ignore
+      this.products.forEach(element => console.log(element.seller.name)) // da undefined
+    });
 
-    this.user = this.userService.getCurrentUser();
   }
 }

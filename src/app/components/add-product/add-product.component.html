@@ -1,0 +1,36 @@
+<div class="add-product-container">
+  <h2>Add New Product</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" [(ngModel)]="name" required />
+    </div>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" [(ngModel)]="description" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="price">Price:</label>
+      <input type="number" id="price" name="price" [(ngModel)]="price" required />
+    </div>
+    <div class="form-group">
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" name="quantity" [(ngModel)]="quantity" required />
+    </div>
+    <div class="form-group">
+      <label for="isNegotiable">Is Negotiable:</label>
+      <input type="checkbox" id="isNegotiable" name="isNegotiable" [(ngModel)]="isNegotiable" required />
+    </div>
+
+    <div class="form-group">
+      <label for="display">Display:</label>
+      <input type="checkbox" id="display" name="display" [(ngModel)]="display" required />
+    </div>
+
+    <button type="submit" class="add-product-button">Add Product</button>
+  </form>
+</div>
+
+
+
+

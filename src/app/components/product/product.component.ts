@@ -1,28 +1,25 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Product } from '../../models/product';
-import { ProductsService } from '../../services/products.service';
 
 @Component({
-  selector: 'app-product',
+  selector: 'product-description',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
-export class ProductComponent implements OnInit
+export class ProductComponent
 {
-  productData: Product = new Product
 
-  constructor(private activeRoute:ActivatedRoute, private service:ProductsService) {}
+  @Input() name! : string;
+  @Input() description! : string;
+  @Input() price! : number;
+  @Input() quantity! : number;
 
-  ngOnInit()
+  @Input() seller! : string;
+
+  constructor(private activeRoute:ActivatedRoute)
   {
-    let productId = this.activeRoute.snapshot.paramMap.get('productId')!;
-    console.log(productId);
 
-
-    this.service
-    .getPostsById(productId)
-    .subscribe((result: Product) => (this.productData = result));
   }
+
 
 }

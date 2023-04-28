@@ -1,14 +1,16 @@
 import { Injectable, OnInit } from '@angular/core';
 import { User } from "../models/User";
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService implements OnInit{
 
-  constructor(){}
+  constructor(private router: Router){}
 
   private currentUser?: User;
+  private role?: string;
 
   setCurrentUser(user: User) {
 
@@ -16,6 +18,7 @@ export class UserService implements OnInit{
     localStorage.setItem('currentUser', JSON.stringify(user));
 
     console.log(user);
+
   }
 
   getCurrentUser() {
@@ -34,7 +37,12 @@ export class UserService implements OnInit{
     localStorage.removeItem('currentUser');
     this.currentUser = undefined;
 
-    location.reload();
+    this.router.navigate(['home']).then(() => {window.location.reload();});
+  }
+
+  getRole()
+  {
+    return this.role = this.currentUser?.roles![0].name;
   }
 
   ngOnInit(): void {

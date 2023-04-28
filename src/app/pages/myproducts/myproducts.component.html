@@ -1,3 +1,6 @@
+<app-add-product></app-add-product>
+
+<h2>Acestea sunt produsele tale:</h2>
 <div>
   <product-description
     *ngFor="let product of products"
@@ -5,6 +8,7 @@
     [description]="product.description"
     [price]="product.price"
     [quantity]="product.quantity"
-    [seller]="product.seller.name!"
   ></product-description>
 </div>
+
+
