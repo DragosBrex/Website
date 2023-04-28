@@ -13,6 +13,7 @@ export class ProductComponent
   @Input() description! : string;
   @Input() price! : number;
   @Input() quantity! : number;
+  @Input() id! : string;
 
   @Input() seller! : string;
 
