@@ -1,4 +1,4 @@
-import { Component , OnInit} from '@angular/core';
+import { Component } from '@angular/core';
 import { Product } from '../../models/product';
 import { ProductsService } from '../../services/products.service';
 import { ProductRequest } from '../../models/productsRequest';
@@ -35,4 +35,19 @@ export class MyproductsComponent
     .getProductsBySellerId(this.user?.id!)
       .subscribe((result: Product[]) => (this.products = result));
   }
+
+  deleteProduct(product: Product): void {
+    const confirmDelete = confirm("Sigur doriti sa stergeti produsul?");
+    if (confirmDelete) {
+      this.products = this.products.filter(p => p !== product);
+
+      this.service.deleteProduct(product.id)
+        .subscribe(
+          () => console.log(`Product ${product.id} deleted`)
+        );
+    }
+  }
+
+
 }
+
