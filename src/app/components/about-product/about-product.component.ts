@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Product } from 'src/app/models/product';4
+import { Product } from 'src/app/models/product';
 import { ProductsService } from 'src/app/services/products.service';
 import { ActivatedRoute, Route } from '@angular/router';
 
@@ -27,5 +27,10 @@ export class AboutProductComponent
     });
 
   }
+
+  onSubmit() {
+    // handle form submission
+  }
+
 
 }
