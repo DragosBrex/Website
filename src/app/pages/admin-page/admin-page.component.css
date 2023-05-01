@@ -1,0 +1,22 @@
+.layout
+{
+
+  display: flex;
+}
+aside
+{
+  background: #dddddd;
+  border:1px solid black;
+  margin-right: 20px;
+  margin-bottom: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+section
+{
+  padding: 30px;
+  margin-right: 20px;
+  border:1px solid black;
+  display: flex;
+}

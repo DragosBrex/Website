@@ -19,6 +19,9 @@ import {AppRoutingModule} from "./app-routing.module";
 import {SellerProductsService} from "./services/seller-product.service";
 import {SellerPageComponent} from "./pages/seller-page/seller-page.component";
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
+import { UserTableComponent } from './components/user-table/user-table.component';
+import {MatTableModule} from "@angular/material/table";
+import {MatSidenavModule} from "@angular/material/sidenav";
 
 
 @NgModule({
@@ -35,6 +38,7 @@ import { AdminPageComponent } from './pages/admin-page/admin-page.component';
     MyproductsComponent,
     NotFoundComponent,
     AdminPageComponent,
+    UserTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +47,8 @@ import { AdminPageComponent } from './pages/admin-page/admin-page.component';
     FormsModule,
     AppRoutingModule,
     ToastrModule.forRoot(),
+    MatTableModule,
+    MatSidenavModule,
   ],
   providers: [
     SellerProductsService,

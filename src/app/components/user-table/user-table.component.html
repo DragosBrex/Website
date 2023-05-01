@@ -1,0 +1,37 @@
+<div class="mat-background-accent">
+  <table mat-table [dataSource]="users">
+
+    <ng-container matColumnDef="UserId">
+      <th *matHeaderCellDef>UserId</th>
+      <td *matCellDef="let element">{{element.id}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Name">
+      <th *matHeaderCellDef>Name</th>
+      <td *matCellDef="let element">{{element.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Email">
+      <th *matHeaderCellDef>Email</th>
+      <td *matCellDef="let element">{{element.email}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Edit">
+      <th *matHeaderCellDef class="center"> Edit</th>
+      <td *matCellDef="let element" class="center">
+        <button class="button-edit">Edit</button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Delete">
+      <th *matHeaderCellDef class="center"> Delete</th>
+      <td *matCellDef="let element" class="center">
+        <button class="button-delete">Delete</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns : displayedColumns"></tr>
+
+  </table>
+</div>
