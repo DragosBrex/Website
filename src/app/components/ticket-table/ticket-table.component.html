@@ -1,19 +1,29 @@
 <div class="mat-background-accent">
-  <table mat-table [dataSource]="users" class="mat-elevation-z8">
+  <table mat-table [dataSource]="tickets" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="TicketId">
+      <th *matHeaderCellDef>TicketId</th>
+      <td *matHeaderRowDef="let element"> {{element.id}}</td>
+    </ng-container>
 
     <ng-container matColumnDef="UserId">
       <th *matHeaderCellDef>UserId</th>
-      <td *matCellDef="let element">{{element.id}}</td>
+      <td *matHeaderRowDef="let element"> {{element.user.id}}</td>
     </ng-container>
 
     <ng-container matColumnDef="Name">
       <th *matHeaderCellDef>Name</th>
-      <td *matCellDef="let element">{{element.name}}</td>
+      <td *matHeaderRowDef="let element"> {{element.user.name}}</td>
     </ng-container>
 
     <ng-container matColumnDef="Email">
       <th *matHeaderCellDef>Email</th>
-      <td *matCellDef="let element">{{element.email}}</td>
+      <td *matHeaderRowDef="let element"> {{element.user.email}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Created">
+      <th *matHeaderCellDef>Created</th>
+      <td *matHeaderRowDef="let element"> {{element.created}}</td>
     </ng-container>
 
     <ng-container matColumnDef="Edit">

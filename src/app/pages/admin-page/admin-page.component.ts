@@ -2,6 +2,7 @@ import {Component, ViewChild, ViewContainerRef} from '@angular/core';
 import {UserTableComponent} from "../../components/user-table/user-table.component";
 import {User} from "../../models/User";
 import {AdminService} from "../../services/admin-service";
+import {TicketTableComponent} from "../../components/ticket-table/ticket-table.component";
 
 @Component({
   selector: 'app-admin-page',
@@ -27,6 +28,21 @@ export class AdminPageComponent {
       this.users = u;
       const userTableRef = this.container.createComponent(UserTableComponent);
       userTableRef.setInput('users', this.users);
+    });
+
+  }
+
+  createComponentProducts() {
+    this.container.clear();
+  }
+
+  createComponentRequests() {
+    this.container.clear();
+    this.adminService.getTickets().subscribe(data=>
+    {
+      console.log(data);
+      const ticketTableRef = this.container.createComponent(TicketTableComponent)
+      ticketTableRef.setInput('tickets' , data);
     });
 
   }

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
@@ -22,6 +21,10 @@ import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { UserTableComponent } from './components/user-table/user-table.component';
 import {MatTableModule} from "@angular/material/table";
 import {MatSidenavModule} from "@angular/material/sidenav";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from "@angular/material/button";
+import {MatCardModule} from "@angular/material/card";
+import { TicketTableComponent } from './components/ticket-table/ticket-table.component';
 
 
 @NgModule({
@@ -39,6 +42,7 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     NotFoundComponent,
     AdminPageComponent,
     UserTableComponent,
+    TicketTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +53,9 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     ToastrModule.forRoot(),
     MatTableModule,
     MatSidenavModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCardModule,
   ],
   providers: [
     SellerProductsService,
