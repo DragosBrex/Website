@@ -46,4 +46,8 @@ export class AdminPageComponent {
     });
 
   }
+
+  createDashBoard() {
+
+  }
 }
