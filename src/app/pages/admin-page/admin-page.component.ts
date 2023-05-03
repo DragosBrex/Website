@@ -3,6 +3,7 @@ import {UserTableComponent} from "../../components/user-table/user-table.compone
 import {User} from "../../models/User";
 import {AdminService} from "../../services/admin-service";
 import {TicketTableComponent} from "../../components/ticket-table/ticket-table.component";
+import {Ticket} from "../../models/Ticket";
 
 @Component({
   selector: 'app-admin-page',
@@ -19,6 +20,7 @@ export class AdminPageComponent {
   container!: ViewContainerRef;
 
   private users: User[] = [];
+  private tickets: Ticket[] = [];
 
   createComponent() {
     this.container.clear();
@@ -38,9 +40,10 @@ export class AdminPageComponent {
 
   createComponentRequests() {
     this.container.clear();
+
     this.adminService.getTickets().subscribe(data=>
     {
-      console.log(data);
+      this.tickets = data;
       const ticketTableRef = this.container.createComponent(TicketTableComponent)
       ticketTableRef.setInput('tickets' , data);
     });

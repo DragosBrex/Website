@@ -8,17 +8,17 @@
 
     <ng-container matColumnDef="UserId">
       <th *matHeaderCellDef>UserId</th>
-      <td *matHeaderRowDef="let element"> {{element.user.id}}</td>
+      <td *matHeaderRowDef="let element"> {{element.user.id!}}</td>
     </ng-container>
 
     <ng-container matColumnDef="Name">
       <th *matHeaderCellDef>Name</th>
-      <td *matHeaderRowDef="let element"> {{element.user.name}}</td>
+      <td *matHeaderRowDef="let element"> {{element.user.name!}}</td>
     </ng-container>
 
     <ng-container matColumnDef="Email">
       <th *matHeaderCellDef>Email</th>
-      <td *matHeaderRowDef="let element"> {{element.user.email}}</td>
+      <td *matHeaderRowDef="let element"> {{element.user.email!}}</td>
     </ng-container>
 
     <ng-container matColumnDef="Created">

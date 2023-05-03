@@ -12,13 +12,17 @@ export class UserTableComponent implements OnChanges{
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log("changes are happen");
+
   }
 
   delete(id :string) {
     alert('delete function: ' + id);
+
   }
 
   edit(id:string) {
     alert('edit function: '+id);
+
   }
+
 }

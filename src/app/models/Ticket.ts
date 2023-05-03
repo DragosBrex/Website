@@ -2,9 +2,10 @@ import {User} from "./User";
 
 export interface Ticket
 {
-  id : string
-  user : User
-  isProcessed: boolean
-  processedDate: Date
   created: Date
+  id : string
+  isProcessed: boolean
+  processedDate?: Date
+  user? : User
+
 }
