@@ -9,6 +9,7 @@ import {ProductComponent} from "./components/product/product.component";
 import { RoleGuardGuard } from './guards/role-guard.guard';
 import {SellerPageComponent} from "./pages/seller-page/seller-page.component";
 import { AboutProductComponent } from './components/about-product/about-product.component';
+import { CartComponent } from './pages/cart/cart.component';
 
 const routes: Routes = [
     { path: '', component:ProductPageComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
     { path: 'myproducts', component: MyproductsComponent, canActivate: [RoleGuardGuard], data: { role: ['Seller']}},
     { path: 'seller/page', component: SellerPageComponent, canActivate: [RoleGuardGuard], data: { role: ['Seller']}},
     { path: 'products/:productId', component: AboutProductComponent },
+    { path: 'cart', component: CartComponent},
     {
         path: '**',
         component: NotFoundComponent

@@ -11,7 +11,7 @@
 
     <p>Quantity: {{ product?.quantity }}</p>
 
-    <p>{{ product?.price }}</p>
+    <p>Price: ${{ product?.price }}</p>
 
     <p>Seller: {{ product?.seller?.name }}</p>
 
@@ -19,6 +19,6 @@
 </div>
 
 <div>
-    <button>Add to cart</button>
+    <button (click)="onSubmit()">Add to cart</button>
 </div>
 

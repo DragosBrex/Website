@@ -1,0 +1,28 @@
+.product {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    float:left;
+    width: 70%;
+}
+
+.buy
+{
+  width: 24%;
+  float: right;
+  border: 1px solid #ddd;
+  padding: 10px;
+  height: 50px;
+}
+
+.buy button
+{
+  width: 100%;
+  height: 100%;
+  float: centre;
+}
+
+.header
+{
+  margin-left: 10px;
+}

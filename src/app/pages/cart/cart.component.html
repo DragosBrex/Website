@@ -1,0 +1,23 @@
+
+<div *ngIf="carts?.length" class="header">
+    <h3>YOUR CART:</h3>
+</div>
+
+<div *ngIf="!carts?.length" class="header">
+    <h3>YOUR CART IS EMPTY</h3>
+</div>
+
+<div>
+    <div *ngIf="carts?.length" class="buy">
+        <button (click)="placeOrder()">Send the order</button>
+    </div>
+
+    <div class="product" *ngFor="let cart of carts">
+        <a routerLink="/products/{{cart.product!.id}}">
+            <h3>{{cart.product!.name}}</h3>  <br>
+            <h3>Pret: {{cart.product!.price}}</h3> <br>
+        </a>
+        <button (click)="deleteProduct(cart)">Delete</button>
+    </div> 
+   
+</div>

@@ -12,6 +12,7 @@
 
     <div *ngIf="user != undefined">
         <li class = "logout"><a (click)="userService.logout()" routerLink="products">Log Out</a></li>
+        <li class = "cart"><a routerLink="cart">Cart</a></li>
         <li class = "name"><a routerLink="user-page">My Account</a></li>
     </div>
 

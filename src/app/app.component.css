@@ -34,6 +34,13 @@ ul.nav li.logout
     float:right;
 }
 
+ul.nav li.cart
+{
+    border-left:1px solid #189b80; /* you can change the border color matching to your background color */
+    border-right:1px solid #189b80; /* you can change the border color matching to your background color */
+    float:right;
+}
+
 ul.nav li.name
 {
   border-left:1px solid #189b80; /* you can change the border color matching to your background color */
