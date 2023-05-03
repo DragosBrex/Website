@@ -19,6 +19,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {SellerProductsService} from "./services/seller-product.service";
 import {SellerPageComponent} from "./pages/seller-page/seller-page.component";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
@@ -34,14 +35,15 @@ import {SellerPageComponent} from "./pages/seller-page/seller-page.component";
     MyproductsComponent,
     NotFoundComponent,
   ],
-  imports: [
-    BrowserModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    FormsModule,
-    AppRoutingModule,
-    ToastrModule.forRoot(),
-  ],
+    imports: [
+        BrowserModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        FormsModule,
+        AppRoutingModule,
+        ToastrModule.forRoot(),
+        MatButtonModule,
+    ],
   providers: [
     SellerProductsService,
     ProductsService,
