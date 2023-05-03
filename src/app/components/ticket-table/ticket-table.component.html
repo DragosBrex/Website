@@ -2,8 +2,8 @@
   <table mat-table [dataSource]="tickets" class="mat-elevation-z8">
 
     <ng-container matColumnDef="TicketId">
-      <th *matHeaderCellDef>TicketId</th>
-      <td *matCellDef="let element"> {{element.id}}</td>
+      <th *matHeaderCellDef >TicketId</th>
+      <td *matCellDef="let element" > {{element.id}}</td>
     </ng-container>
 
     <ng-container matColumnDef="UserId">
@@ -26,19 +26,14 @@
       <td *matCellDef="let element"> {{element.created | date:'dd-MM-yyyy'}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="Accept">
-      <th *matHeaderCellDef class="center"> Accept</th>
+    <ng-container matColumnDef="Status">
+      <th *matHeaderCellDef class="center"></th>
       <td *matCellDef="let element" class="center">
-        <button mat-stroked-button (click)="accept(element.id)">Accept</button>
+        <button mat-stroked-button color="primary" (click)="accept(element.id)">Accept</button>
+        <button mat-stroked-button color="warn" (click)="decline(element.id)"> Decline</button>
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="Accept">
-      <th *matHeaderCellDef class="center"> Decline</th>
-      <td *matCellDef="let element" class="center">
-        <button mat-stroked-button color="warn" (click)="decline(element.id)">Decline</button>
-      </td>
-    </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns : displayedColumns"></tr>

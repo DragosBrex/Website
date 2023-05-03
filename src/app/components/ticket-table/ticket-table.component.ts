@@ -9,7 +9,7 @@ import {AdminService} from "../../services/admin-service";
 })
 export class TicketTableComponent implements OnInit{
   @Input() tickets: Ticket[] = [];
-  displayedColumns: string[] = ['TicketId', 'UserId', 'Name', 'Email', 'Created', 'Accept', 'Decline']
+  displayedColumns: string[] = ['TicketId', 'UserId', 'Name', 'Email', 'Created', 'Status']
 
   constructor(private adminService : AdminService) {
   }
@@ -25,10 +25,18 @@ export class TicketTableComponent implements OnInit{
 
 
   accept(id:string) {
-
+    this.adminService.aprooveTicket(id).subscribe(()=>
+    {
+      alert("accepted");
+      this.ngOnInit();
+    })
   }
 
   decline(id:string) {
-
+    this.adminService.aprooveTicket(id).subscribe(()=>
+    {
+      alert("declined");
+      this.ngOnInit();
+    })
   }
 }

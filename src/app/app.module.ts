@@ -25,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import { TicketTableComponent } from './components/ticket-table/ticket-table.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { TicketTableComponent } from './components/ticket-table/ticket-table.com
     AdminPageComponent,
     UserTableComponent,
     TicketTableComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

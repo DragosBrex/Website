@@ -21,4 +21,17 @@ export class AdminService {
   {
     return this.http.get<Ticket[]>(this.url + '/tickets')
   }
+
+  public aprooveTicket(ticketId : string){
+    // @ts-ignore
+    return this.http.put(this.url+ '/tickets/' + ticketId);
+  }
+
+  public declineTicket(ticketId : string) {
+    return this.http.delete(this.url+ '/tickets/' + ticketId);
+  }
+
+  public deleteUser(userId : string) {
+    return this.http.delete(this.url+ '/users/' + userId);
+  }
 }

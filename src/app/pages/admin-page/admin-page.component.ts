@@ -1,9 +1,10 @@
-import {Component, ViewChild, ViewContainerRef} from '@angular/core';
+import {Component, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {UserTableComponent} from "../../components/user-table/user-table.component";
 import {User} from "../../models/User";
 import {AdminService} from "../../services/admin-service";
 import {TicketTableComponent} from "../../components/ticket-table/ticket-table.component";
 import {Ticket} from "../../models/Ticket";
+import {DashboardComponent} from "../../components/dashboard/dashboard.component";
 
 @Component({
   selector: 'app-admin-page',
@@ -11,27 +12,19 @@ import {Ticket} from "../../models/Ticket";
   styleUrls: ['./admin-page.component.css']
 })
 
-export class AdminPageComponent {
-
-  constructor(private adminService : AdminService) {
-  }
+export class AdminPageComponent implements OnInit{
 
   @ViewChild('container', { read: ViewContainerRef })
   container!: ViewContainerRef;
 
-  private users: User[] = [];
-  private tickets: Ticket[] = [];
+  constructor() {
+  }
 
   createComponent() {
     this.container.clear();
-    //userTableRef.instance.users = this.users
-    this.adminService.getUsers().subscribe(u=>
-    {
-      this.users = u;
-      const userTableRef = this.container.createComponent(UserTableComponent);
-      userTableRef.setInput('users', this.users);
-    });
 
+    const userTableRef = this.container.createComponent(UserTableComponent);
+    userTableRef.instance;
   }
 
   createComponentProducts() {
@@ -45,8 +38,16 @@ export class AdminPageComponent {
     ticketTableRef.instance;
 
   }
-
   createDashBoard() {
+    this.container.clear();
 
+    const dashboardRef = this.container.createComponent(DashboardComponent)
+    dashboardRef.instance;
   }
+
+  ngOnInit(): void {
+    this.createDashBoard();
+  }
+
+
 }
