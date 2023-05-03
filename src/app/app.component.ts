@@ -18,7 +18,6 @@ export class AppComponent implements OnInit, OnChanges
   ngOnInit(): void {
     this.user = this.userService.getCurrentUser();
     this.user?.roles!.forEach(r => this.roles?.push(<string>r.name))
-    this.roles.forEach(r=>console.log(r));
   }
 
   ngOnChanges(changes: User) {

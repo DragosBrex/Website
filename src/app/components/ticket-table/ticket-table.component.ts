@@ -9,28 +9,26 @@ import {AdminService} from "../../services/admin-service";
 })
 export class TicketTableComponent implements OnInit{
   @Input() tickets: Ticket[] = [];
-  displayedColumns: string[] = ['TicketId', 'UserId', 'Name', 'Email', 'Created', 'Edit', 'Deleted']
+  displayedColumns: string[] = ['TicketId', 'UserId', 'Name', 'Email', 'Created', 'Accept', 'Decline']
 
   constructor(private adminService : AdminService) {
   }
-
-  edit(id:string) {
-
-  }
-
-  delete(id:string) {
-
-  }
-
   ngOnInit(): void {
-    /*
+
     this.adminService.getTickets().pipe().subscribe(data=>
     {
       this.tickets = data;
       console.log(this.tickets);
     });
-    */
+
   }
 
 
+  accept(id:string) {
+
+  }
+
+  decline(id:string) {
+
+  }
 }

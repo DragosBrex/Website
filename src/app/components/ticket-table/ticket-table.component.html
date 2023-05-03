@@ -3,40 +3,40 @@
 
     <ng-container matColumnDef="TicketId">
       <th *matHeaderCellDef>TicketId</th>
-      <td *matHeaderRowDef="let element"> {{element.id}}</td>
+      <td *matCellDef="let element"> {{element.id}}</td>
     </ng-container>
 
     <ng-container matColumnDef="UserId">
       <th *matHeaderCellDef>UserId</th>
-      <td *matHeaderRowDef="let element"> {{element.user.id!}}</td>
+      <td *matCellDef="let element"> {{element.user.id}}</td>
     </ng-container>
 
     <ng-container matColumnDef="Name">
       <th *matHeaderCellDef>Name</th>
-      <td *matHeaderRowDef="let element"> {{element.user.name!}}</td>
+      <td *matCellDef="let element"> {{element.user.name}}</td>
     </ng-container>
 
     <ng-container matColumnDef="Email">
       <th *matHeaderCellDef>Email</th>
-      <td *matHeaderRowDef="let element"> {{element.user.email!}}</td>
+      <td *matCellDef="let element"> {{element.user.email}}</td>
     </ng-container>
 
     <ng-container matColumnDef="Created">
       <th *matHeaderCellDef>Created</th>
-      <td *matHeaderRowDef="let element"> {{element.created}}</td>
+      <td *matCellDef="let element"> {{element.created | date:'dd-MM-yyyy'}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="Edit">
-      <th *matHeaderCellDef class="center"> Edit</th>
+    <ng-container matColumnDef="Accept">
+      <th *matHeaderCellDef class="center"> Accept</th>
       <td *matCellDef="let element" class="center">
-        <button mat-stroked-button (click)="edit(element.id)">Edit</button>
+        <button mat-stroked-button (click)="accept(element.id)">Accept</button>
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="Delete">
-      <th *matHeaderCellDef class="center"> Delete</th>
+    <ng-container matColumnDef="Accept">
+      <th *matHeaderCellDef class="center"> Decline</th>
       <td *matCellDef="let element" class="center">
-        <button mat-stroked-button color="warn" (click)="delete(element.id)">Delete</button>
+        <button mat-stroked-button color="warn" (click)="decline(element.id)">Decline</button>
       </td>
     </ng-container>
 

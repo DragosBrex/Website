@@ -41,12 +41,8 @@ export class AdminPageComponent {
   createComponentRequests() {
     this.container.clear();
 
-    this.adminService.getTickets().subscribe(data=>
-    {
-      this.tickets = data;
-      const ticketTableRef = this.container.createComponent(TicketTableComponent)
-      ticketTableRef.setInput('tickets' , data);
-    });
+    const ticketTableRef = this.container.createComponent(TicketTableComponent)
+    ticketTableRef.instance;
 
   }
 
