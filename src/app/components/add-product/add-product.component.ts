@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {SellerProductsService} from "../../services/seller-product.service";
 import {Router} from "@angular/router";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-add-product',
@@ -17,7 +18,9 @@ export class AddProductComponent implements OnInit {
   @Input() quantity!: number;
   @Input() isNegotiable!: boolean;
   @Input() display!: boolean;
-  constructor(private service : SellerProductsService, private router : Router){}
+  constructor(private service : SellerProductsService,
+              private router : Router,
+              private location: Location){}
 
   onSubmit() {
     const newProduct = {
@@ -45,6 +48,10 @@ export class AddProductComponent implements OnInit {
     this.price = 0;
     this.quantity = 0;
     this.display = false;
+  }
+
+  cancel(): void {
+    this.location.back();
   }
 
 }
