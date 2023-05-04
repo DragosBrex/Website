@@ -4,6 +4,7 @@
 <div>
   <product-description
     *ngFor="let product of products"
+    [id]="product.id!"
     [name]="product.name"
     [description]="product.description"
     [price]="product.price"

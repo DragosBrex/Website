@@ -1,8 +1,10 @@
 
 <div class="product">
-  <h2>{{ name }}</h2>
-  <p>{{ description }}</p>
-  <p>Quantity: {{ quantity }}</p>
-  <h3>{{ price }}</h3>
-  <p>Seller: {{ seller }}</p>
+  <a routerLink="/products/{{id}}">
+    <h2>{{ name }}</h2>
+    <p>{{ description }}</p>
+    <p>Quantity: {{ quantity }}</p>
+    <p>Price: {{ price }}</p>
+    <p>Seller: {{ seller }}</p>
+  </a>
 </div>

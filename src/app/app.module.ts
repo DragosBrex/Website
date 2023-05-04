@@ -19,6 +19,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {SellerProductsService} from "./services/seller-product.service";
 import {SellerPageComponent} from "./pages/seller-page/seller-page.component";
+import { AboutProductComponent } from './components/about-product/about-product.component';
+import { CartComponent } from './pages/cart/cart.component';
 
 
 @NgModule({
@@ -33,6 +35,8 @@ import {SellerPageComponent} from "./pages/seller-page/seller-page.component";
     AddProductComponent,
     MyproductsComponent,
     NotFoundComponent,
+    AboutProductComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
