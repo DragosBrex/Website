@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
@@ -10,7 +9,6 @@ import { ProductsService } from './services/products.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
-import { FormStyle } from '@angular/common';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { MyproductsComponent } from './pages/myproducts/myproducts.component';
 import { UserService } from './services/user.serice';
@@ -20,6 +18,8 @@ import {AppRoutingModule} from "./app-routing.module";
 import {SellerProductsService} from "./services/seller-product.service";
 import {SellerPageComponent} from "./pages/seller-page/seller-page.component";
 import {MatButtonModule} from "@angular/material/button";
+import { MatIconModule } from '@angular/material/icon';
+
 
 
 @NgModule({
@@ -43,6 +43,7 @@ import {MatButtonModule} from "@angular/material/button";
         AppRoutingModule,
         ToastrModule.forRoot(),
         MatButtonModule,
+        MatIconModule,
     ],
   providers: [
     SellerProductsService,

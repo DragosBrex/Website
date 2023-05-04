@@ -8,15 +8,17 @@ import {MyproductsComponent} from "./pages/myproducts/myproducts.component";
 import {ProductComponent} from "./components/product/product.component";
 import { RoleGuardGuard } from './guards/role-guard.guard';
 import {SellerPageComponent} from "./pages/seller-page/seller-page.component";
+import {AddProductComponent} from "./components/add-product/add-product.component";
 
 const routes: Routes = [
     { path: '',component:ProductPageComponent },
     { path: 'home',component:ProductPageComponent },
-    { path:'login', component: LoginPageComponent },
+    { path: 'login', component: LoginPageComponent },
     { path: 'signup', component: SignupPageComponent },
     { path: 'myproducts', component: MyproductsComponent, canActivate: [RoleGuardGuard], data: { role: ['Seller']}},
     { path: 'seller/page', component: SellerPageComponent, canActivate: [RoleGuardGuard], data: { role: ['Seller']}},
     { path: 'products/:productId', component: ProductComponent },
+    { path: 'add-product', component: AddProductComponent },
     {
         path: '**',
         component: NotFoundComponent

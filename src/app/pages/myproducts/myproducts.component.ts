@@ -6,6 +6,7 @@ import { NgModel } from '@angular/forms';
 import {SellerProductsService} from "../../services/seller-product.service";
 import { UserService } from '../../services/user.serice';
 import { User } from '../../models/User';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-edit-product',
@@ -20,7 +21,9 @@ export class MyproductsComponent
 
   product = new ProductRequest;
 
-  constructor(private service:SellerProductsService, private userService: UserService) {}
+  constructor(private service:SellerProductsService,
+              private userService: UserService,
+              private router: Router) {}
 
   add(product : ProductRequest ) : any
   {
@@ -48,6 +51,16 @@ export class MyproductsComponent
     }
   }
 
+  hover= true;
+  onAddProduct() {
+    this.router.navigate(['/add-product']);
+
+   /*clicked = false;
+   this.clicked = true;
+    setTimeout(() => {
+      this.clicked = false;
+    }, 1000);*/
+  }
 
 }
 

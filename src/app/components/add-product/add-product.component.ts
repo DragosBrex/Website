@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {SellerProductsService} from "../../services/seller-product.service";
-import {Route, Router} from "@angular/router";
-import {empty} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-product',
