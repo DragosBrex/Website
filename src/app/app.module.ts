@@ -17,6 +17,15 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {SellerProductsService} from "./services/seller-product.service";
 import {SellerPageComponent} from "./pages/seller-page/seller-page.component";
+import {TicketTableComponent} from "./components/ticket-table/ticket-table.component";
+import {UserTableComponent} from "./components/user-table/user-table.component";
+import {DashboardComponent} from "./components/dashboard/dashboard.component";
+import {DeleteDialogComponent} from "./shared/delete-dialog/delete-dialog.component";
+import {AdminPageComponent} from "./pages/admin-page/admin-page.component";
+import {AboutProductComponent} from "./components/about-product/about-product.component";
+import {CartComponent} from "./pages/cart/cart.component";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatTableModule} from "@angular/material/table";
 
 
 
@@ -48,6 +57,8 @@ import {SellerPageComponent} from "./pages/seller-page/seller-page.component";
     FormsModule,
     AppRoutingModule,
     ToastrModule.forRoot(),
+    MatDialogModule,
+    MatTableModule,
   ],
   providers: [
     SellerProductsService,
