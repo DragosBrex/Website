@@ -1,15 +1,26 @@
-<app-add-product></app-add-product>
+<!--<app-add-product></app-add-product>-->
 
-<h2>Acestea sunt produsele tale:</h2>
 <div>
-  <product-description
-    *ngFor="let product of products"
-    [id]="product.id!"
-    [name]="product.name"
-    [description]="product.description"
-    [price]="product.price"
-    [quantity]="product.quantity"
-  ></product-description>
+<button class="add-button" mat-mini-fab color="primary" (click)="onAddProduct()" (mouseenter)="hover=true" (mouseleave)="hover=false">
+  <mat-icon [ngClass]="{'rotate': hover}">add</mat-icon>
+</button>
+  <span class="add-product-text">Add New Product</span>
 </div>
+
+<div>
+  <h2>Acestea sunt produsele tale:</h2>
+  <div *ngFor="let product of products">
+    <product-description
+      [name]="product.name"
+      [description]="product.description"
+      [price]="product.price"
+      [quantity]="product.quantity"
+    ></product-description>
+
+    <button mat-raised-button color="accent" (click)="deleteProduct(product)">Delete</button>
+
+  </div>
+</div>
+
 
 

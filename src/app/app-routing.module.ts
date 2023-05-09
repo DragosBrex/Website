@@ -8,6 +8,7 @@ import {MyproductsComponent} from "./pages/myproducts/myproducts.component";
 import {ProductComponent} from "./components/product/product.component";
 import { RoleGuardGuard } from './guards/role-guard.guard';
 import {SellerPageComponent} from "./pages/seller-page/seller-page.component";
+import {AddProductComponent} from "./components/add-product/add-product.component";
 import {AdminPageComponent} from "./pages/admin-page/admin-page.component";
 import { AboutProductComponent } from './components/about-product/about-product.component';
 import { CartComponent } from './pages/cart/cart.component';
@@ -19,9 +20,6 @@ const routes: Routes = [
     { path: 'signup', component: SignupPageComponent },
     { path: 'cart', component: CartComponent},
     { path: 'products/:productId', component: ProductComponent },
-    { path: 'admin/page', component: AdminPageComponent, canActivate: [RoleGuardGuard], data: { role: ['Admin']} },
-    { path: 'seller/page', component: SellerPageComponent, canActivate: [RoleGuardGuard], data: { role: ['Seller']} },
-    { path: 'myproducts', component: MyproductsComponent, canActivate: [RoleGuardGuard], data: { role: ['Seller']} },
     {
         path: '**',
         component: NotFoundComponent
