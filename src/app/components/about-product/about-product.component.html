@@ -1,21 +1,29 @@
+<div class="product">
+  <div class="product-details">
+    <p class="header">{{ product?.name }}</p>
+    <div class="photo">
+      <img src="https://art.pixilart.com/4bc0bd8b0bad943.png" style="width: 300px; height: 300px;">
+    </div>
+  </div>
 
-<div class ="product">
+  <div class="product-info">
 
-
-    <p class="header">{{ product?.name }}: {{ product?.description }}</p>
-
-    <div class = "photo">
-        <img src="https://www.charlotteathleticclub.com/assets/camaleon_cms/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png"
-        style="width:300px;height:400px;">
+    <div class="info-right">
+      <p>{{ product?.description }}</p>
+      <p>Quantity: {{ product?.quantity }}</p>
+      <p>{{ product?.price }} RON</p>
+      <p>Seller: {{ product?.seller?.name }}</p>
     </div>
 
-    <p>Quantity: {{ product?.quantity }}</p>
+    <div class="product-buttons-container">
+      <div class="product-buttons">
+        <button>Add to Cart</button>
+        <button class="edit-main" (click)="onSubmit()">Edit Product</button>
 
-    <p>Price: ${{ product?.price }}</p>
 
-    <p>Seller: {{ product?.seller?.name }}</p>
-
-
+      </div>
+    </div>
+  </div>
 </div>
 
 <div>

@@ -13,6 +13,9 @@ import {Injectable} from "@angular/core";
 
 export class SellerProductsService
 {
+  getProductById(id: string) {
+      throw new Error('Method not implemented.');
+  }
   private url = 'https://trade-box.azurewebsites.net/products/seller';
   seller? : User;
   constructor(private userService : UserService, private http: HttpClient)

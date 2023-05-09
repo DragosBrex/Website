@@ -52,4 +52,9 @@ export class AboutProductComponent implements OnInit
 
   }
 
+  onSubmit() {
+    // handle form submission
+  }
+
+
 }

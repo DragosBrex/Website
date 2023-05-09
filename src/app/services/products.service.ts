@@ -21,4 +21,11 @@ export class ProductsService {
   public getPostsById(ProductId: string): Observable<Product> {
     return this.http.get<Product>(`${this.url}/${ProductId}`);
   }
+
+  getProductById(id: string): Observable<any> {
+    const url = `${this.url}/${id}`;
+    return this.http.get(url);
+  }
+
+
 }

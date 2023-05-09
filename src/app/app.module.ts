@@ -30,6 +30,7 @@ import { TicketTableComponent } from './components/ticket-table/ticket-table.com
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DeleteDialogComponent } from './shared/delete-dialog/delete-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { EditProductComponent } from './components/edit-product/edit-product.component';
 
 
 @NgModule({
@@ -51,7 +52,6 @@ import {MatDialogModule} from "@angular/material/dialog";
     DashboardComponent,
     DeleteDialogComponent,
     AboutProductComponent,
-    CartComponent,
   ],
     imports: [
         BrowserModule,
