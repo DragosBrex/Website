@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
@@ -9,8 +8,7 @@ import { ProductComponent } from './components/product/product.component';
 import { ProductsService } from './services/products.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
-import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
-import { FormStyle } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { MyproductsComponent } from './pages/myproducts/myproducts.component';
 import { UserService } from './services/user.serice';
@@ -21,10 +19,22 @@ import {SellerProductsService} from "./services/seller-product.service";
 import {SellerPageComponent} from "./pages/seller-page/seller-page.component";
 import { AboutProductComponent } from './components/about-product/about-product.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { AdminPageComponent } from './pages/admin-page/admin-page.component';
+import { UserTableComponent } from './components/user-table/user-table.component';
+import {MatTableModule} from "@angular/material/table";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from "@angular/material/button";
+import {MatCardModule} from "@angular/material/card";
+import { TicketTableComponent } from './components/ticket-table/ticket-table.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DeleteDialogComponent } from './shared/delete-dialog/delete-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 @NgModule({
   declarations: [
+    AdminPageComponent,
     SellerPageComponent,
     AppComponent,
     LoginPageComponent,
@@ -35,17 +45,28 @@ import { CartComponent } from './pages/cart/cart.component';
     AddProductComponent,
     MyproductsComponent,
     NotFoundComponent,
+    AdminPageComponent,
+    UserTableComponent,
+    TicketTableComponent,
+    DashboardComponent,
+    DeleteDialogComponent,
     AboutProductComponent,
     CartComponent,
   ],
-  imports: [
-    BrowserModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    FormsModule,
-    AppRoutingModule,
-    ToastrModule.forRoot(),
-  ],
+    imports: [
+        BrowserModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        FormsModule,
+        AppRoutingModule,
+        ToastrModule.forRoot(),
+        MatTableModule,
+        MatSidenavModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatCardModule,
+        MatDialogModule,
+    ],
   providers: [
     SellerProductsService,
     ProductsService,

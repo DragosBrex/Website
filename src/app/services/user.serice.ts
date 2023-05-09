@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
+import {Injectable, Input, OnInit} from '@angular/core';
 import { User } from "../models/User";
 import { Router } from '@angular/router';
 
@@ -10,7 +10,6 @@ export class UserService implements OnInit{
   constructor(private router: Router){}
 
   private currentUser?: User;
-  private role?: string;
 
   setCurrentUser(user: User) {
 
@@ -40,9 +39,13 @@ export class UserService implements OnInit{
     this.router.navigate(['home']).then(() => {window.location.reload();});
   }
 
-  getRole()
+  getRole(role : string)
   {
-    return this.role = this.currentUser?.roles![0].name;
+    let roles : string[] = [];
+
+    this.currentUser?.roles!.forEach(r => roles.push(<string>r.name))
+
+    return roles.find(r=> r == role) == role;
   }
 
   ngOnInit(): void {

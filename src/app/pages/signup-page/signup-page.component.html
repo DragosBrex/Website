@@ -21,6 +21,11 @@
       <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword" required>
     </div>
 
+    <div>
+      <label for="sellerRequest">Request for seller role:   </label>
+      <input type="checkbox" id="sellerRequest" name="sellerRequest" [(ngModel)]="sellerRequest">
+    </div>
+
     <button type="submit" [disabled]="!signupForm.form.valid">Signup</button>
   </form>
 </div>

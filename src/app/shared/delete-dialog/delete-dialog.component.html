@@ -1,0 +1,9 @@
+<h1 class="flex-center">Are you sure?</h1>
+<mat-dialog-content>
+  You are about to delete <b>{{this.data.name}}</b> from the list.
+</mat-dialog-content>
+<mat-dialog-actions class="button-container">
+  <button class="button-secundary width-fix" (click)="onNoClick()">No</button>
+  <button class="button-default width-fix" [mat-dialog-close]="true" cdkFocusInitial>Yes</button>
+</mat-dialog-actions>
+

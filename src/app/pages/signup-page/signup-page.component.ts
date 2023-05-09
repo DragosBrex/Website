@@ -13,6 +13,7 @@ export class SignupPageComponent {
   @Input() username = '';
   @Input() password = '';
   @Input() confirmPassword = '';
+  @Input() sellerRequest = false;
 
   constructor(private authService: AuthService, private router: Router) {
   }
@@ -28,6 +29,7 @@ export class SignupPageComponent {
     user.email = this.email;
     user.password = this.password;
     user.name = this.username;
+    user.sellerRequest = this.sellerRequest;
 
     this.authService.signup(user).pipe().subscribe(u=>
     {

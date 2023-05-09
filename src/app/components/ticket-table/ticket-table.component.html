@@ -1,0 +1,42 @@
+<div class="mat-background-accent">
+  <table mat-table [dataSource]="tickets" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="TicketId">
+      <th *matHeaderCellDef >TicketId</th>
+      <td *matCellDef="let element" > {{element.id}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="UserId">
+      <th *matHeaderCellDef>UserId</th>
+      <td *matCellDef="let element"> {{element.user.id}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Name">
+      <th *matHeaderCellDef>Name</th>
+      <td *matCellDef="let element"> {{element.user.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Email">
+      <th *matHeaderCellDef>Email</th>
+      <td *matCellDef="let element"> {{element.user.email}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Created">
+      <th *matHeaderCellDef>Created</th>
+      <td *matCellDef="let element"> {{element.created | date:'dd-MM-yyyy'}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Status">
+      <th *matHeaderCellDef class="center"></th>
+      <td *matCellDef="let element" class="center">
+        <button mat-stroked-button color="primary" (click)="accept(element.id)">Accept</button>
+        <button mat-stroked-button color="warn" (click)="decline(element.id)"> Decline</button>
+      </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns : displayedColumns"></tr>
+
+  </table>
+</div>
