@@ -1,4 +1,7 @@
-table{
+table
+{
   padding: 20px;
-
+  width: 110%;
+  text-align: center;
 }
+

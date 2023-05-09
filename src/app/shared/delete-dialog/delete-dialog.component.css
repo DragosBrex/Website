@@ -1,0 +1,15 @@
+.button-container {
+  display: flex;
+  column-gap: 8px;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.width-fix{
+  width:100%;
+}
+.flex-center{
+  display: flex;
+  justify-content: center;
+}

@@ -14,13 +14,7 @@ export class TicketTableComponent implements OnInit{
   constructor(private adminService : AdminService) {
   }
   ngOnInit(): void {
-
-    this.adminService.getTickets().pipe().subscribe(data=>
-    {
-      this.tickets = data;
-      console.log(this.tickets);
-    });
-
+    this.updateTable();
   }
 
 
@@ -28,15 +22,24 @@ export class TicketTableComponent implements OnInit{
     this.adminService.aprooveTicket(id).subscribe(()=>
     {
       alert("accepted");
-      this.ngOnInit();
+      this.updateTable();
     })
   }
 
   decline(id:string) {
-    this.adminService.aprooveTicket(id).subscribe(()=>
+    this.adminService.declineTicket(id).subscribe(()=>
     {
       alert("declined");
-      this.ngOnInit();
-    })
+      this.updateTable()
+    },
+      error => this.updateTable())
+  }
+
+  private updateTable(){
+    this.adminService.getTickets().pipe().subscribe(data=>
+    {
+      this.tickets = data;
+      console.log(this.tickets);
+    });
   }
 }

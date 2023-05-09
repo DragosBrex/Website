@@ -1,3 +1,4 @@
+
 <div class="mat-background-accent">
   <table mat-table [dataSource]="users" class="mat-elevation-z8">
 
@@ -26,7 +27,7 @@
     <ng-container matColumnDef="Delete">
       <th *matHeaderCellDef class="center"> Delete</th>
       <td *matCellDef="let element" class="center">
-        <button mat-stroked-button color="warn" (click)="delete(element.id)">Delete</button>
+        <button mat-stroked-button color="warn" (click)="delete(element)">Delete</button>
       </td>
     </ng-container>
 

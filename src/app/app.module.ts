@@ -26,6 +26,8 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import { TicketTableComponent } from './components/ticket-table/ticket-table.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DeleteDialogComponent } from './shared/delete-dialog/delete-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 @NgModule({
@@ -45,20 +47,22 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     UserTableComponent,
     TicketTableComponent,
     DashboardComponent,
+    DeleteDialogComponent,
   ],
-  imports: [
-    BrowserModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    FormsModule,
-    AppRoutingModule,
-    ToastrModule.forRoot(),
-    MatTableModule,
-    MatSidenavModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatCardModule,
-  ],
+    imports: [
+        BrowserModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        FormsModule,
+        AppRoutingModule,
+        ToastrModule.forRoot(),
+        MatTableModule,
+        MatSidenavModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatCardModule,
+        MatDialogModule,
+    ],
   providers: [
     SellerProductsService,
     ProductsService,

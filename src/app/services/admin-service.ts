@@ -32,6 +32,6 @@ export class AdminService {
   }
 
   public deleteUser(userId : string) {
-    return this.http.delete(this.url+ '/users/' + userId);
+    return this.http.delete<string>(this.url+ '/users/' + userId);
   }
 }
