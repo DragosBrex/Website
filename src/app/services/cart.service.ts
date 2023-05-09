@@ -34,9 +34,9 @@ export class CartService
     return this.http.get<CartResponse[]>(this.url + '/' + this.userId);
   }
 
-  public getHistory(): Observable<Cart[]>
+  public getHistory(): Observable<CartResponse[]>
   {
-    return this.http.get<Cart[]>(this.url + '/history/' + this.userId);
+    return this.http.get<CartResponse[]>(this.url + '/history/' + this.userId);
   }
 
   public buyAll()
