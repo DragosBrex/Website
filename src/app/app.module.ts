@@ -52,6 +52,7 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
     DashboardComponent,
     DeleteDialogComponent,
     AboutProductComponent,
+    CartComponent,
   ],
     imports: [
         BrowserModule,
