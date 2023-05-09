@@ -6,6 +6,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { ProductsService } from 'src/app/services/products.service';
 import { Router } from '@angular/router';
 import { delay } from 'rxjs';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-cart',
@@ -14,10 +15,17 @@ import { delay } from 'rxjs';
 })
 export class CartComponent {
  carts: CartResponse[] = [];
+ cartHistory: CartResponse[] = [];
+ pHistory: Product[] = [];
  product: Product | undefined;
+ show: boolean = true;
 
  constructor(private router: Router, private cartService: CartService, private productService: ProductsService){}
 
+toggleShow()
+{
+  this.show = !this.show;
+}
 
 deleteProduct(cart: CartResponse)
 {
@@ -60,6 +68,10 @@ placeOrder()
   this.cartService
   .getCart()
   .subscribe((result: CartResponse[]) => (this.carts = result));
+
+  this.cartService
+  .getHistory()
+  .subscribe((result: CartResponse[]) => (this.cartHistory = result));
  }
 
 }

@@ -8,10 +8,12 @@
 </div>
 
 <div>
+    
     <div *ngIf="carts?.length" class="buy">
-        <button (click)="placeOrder()">Send the order</button>
+        <button (click)="placeOrder()">Send the order</button> 
     </div>
-
+            
+    
     <div class="product" *ngFor="let cart of carts">
         <a routerLink="/products/{{cart.product!.id}}">
             <h3>{{cart.product!.name}}</h3>  <br>
@@ -19,5 +21,14 @@
         </a>
         <button (click)="deleteProduct(cart)">Delete</button>
     </div> 
-   
+    
+    <button (click)="toggleShow()">View Order History</button>
+
+    <div *ngIf="show">
+    <div class="cHistory" *ngFor="let ch of cartHistory">
+        {{ch.purchasedDate}} --- Product name: {{ch.product?.name}} --- Buying price: {{ch.product?.price}} 
+    </div>
+    </div> 
+    
+
 </div>
