@@ -26,6 +26,7 @@ import {AboutProductComponent} from "./components/about-product/about-product.co
 import {CartComponent} from "./pages/cart/cart.component";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatTableModule} from "@angular/material/table";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -59,6 +60,7 @@ import {MatTableModule} from "@angular/material/table";
     ToastrModule.forRoot(),
     MatDialogModule,
     MatTableModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     SellerProductsService,

@@ -19,8 +19,10 @@ const routes: Routes = [
     { path: 'login', component: LoginPageComponent },
     { path: 'signup', component: SignupPageComponent },
     { path: 'cart', component: CartComponent},
-    { path: 'admin/page', component: AdminPageComponent},
-    { path: 'products/:productId', component: ProductComponent },
+    { path: 'myproducts', component: MyproductsComponent, canActivate: [RoleGuardGuard], data: { role: ['Seller']} },
+    { path: 'seller/page', component: SellerPageComponent, canActivate: [RoleGuardGuard], data: { role: ['Seller']} },
+    { path: 'admin/page', component: AdminPageComponent, canActivate: [RoleGuardGuard], data: { role: ['Admin']} },
+    { path: 'products/:productId', component: AboutProductComponent },
     {
         path: '**',
         component: NotFoundComponent
