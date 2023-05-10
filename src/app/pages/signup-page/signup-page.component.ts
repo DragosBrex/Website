@@ -2,6 +2,7 @@ import {Component, Input} from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import {UserRequest} from "../../models/UserRequest";
 import {Router} from "@angular/router";
+import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'app-signup-page',
@@ -15,12 +16,15 @@ export class SignupPageComponent {
   @Input() confirmPassword = '';
   @Input() sellerRequest = false;
 
+  @Input() backEndMessage = '';
+  @Input() passwordMessage = '';
+
   constructor(private authService: AuthService, private router: Router) {
   }
   onSubmit() {
     if(this.password != this.confirmPassword)
     {
-      console.log("password did not match confirm password");
+      this.passwordMessage += "password did not match with confirm password";
       this.confirmPassword='';
       return;
     }
@@ -35,6 +39,10 @@ export class SignupPageComponent {
     {
       console.log(`user: \n${u.id} \n${u.name} \n${u.email} \n${u.roles} `);
       this.router.navigate(['home']).then(() => {window.location.reload();});
+    },
+    error=>
+    {
+      this.backEndMessage = error.error;
     });
 
   }

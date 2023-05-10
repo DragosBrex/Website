@@ -6,6 +6,7 @@ import {AuthService} from "../../services/auth.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {throwError} from "rxjs";
 import {catchError} from "rxjs/operators";
+import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'app-login-page',
@@ -18,6 +19,9 @@ export class LoginPageComponent {
   @Input() email = '';
   @Input() password = '';
 
+  @Input() loginFail = false;
+  @Input() message = '';
+
   constructor(private authService: AuthService, private router: Router) {}
 
   async onSubmit() {
@@ -26,23 +30,15 @@ export class LoginPageComponent {
      let user = new User();
 
      await this.authService.login(this.email, this.password)
-       .pipe(
-         catchError(this.handleError)
-       ).subscribe((u)=>
+       .subscribe((u)=>
       {
        user = u;
        this.router.navigate(['home']).then(() => {window.location.reload();});
-      });
+      },
+     error=>
+     {
+       this.loginFail = true;
+       this.message = error.error;
+     });
   }
-  private handleError(error: HttpErrorResponse) {
-    if (error.error instanceof ErrorEvent) {
-      // A client-side or network error occurred. Handle it accordingly.
-      console.error('An error occurred:', error.error.message);
-    } else {
-      // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong.
-      console.error(`Backend returned code ${error.status}, ` + `body was: ${error.error}`);
-    }
-    return throwError(error.error);
-  };
 }

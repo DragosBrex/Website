@@ -28,4 +28,13 @@
 
     <button type="submit" [disabled]="!signupForm.form.valid">Signup</button>
   </form>
+
+  <div class="alert" *ngIf="passwordMessage != ''">
+    {{passwordMessage}}
+  </div>
+
+  <div class="alert" *ngIf="backEndMessage != ''">
+    {{backEndMessage}}
+  </div>
+
 </div>

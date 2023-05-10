@@ -38,3 +38,13 @@ button[type="submit"]:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
+
+.alert {
+  padding: 7px;
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+  font-size: 0.875rem;
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
