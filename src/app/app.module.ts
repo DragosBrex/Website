@@ -27,6 +27,7 @@ import {CartComponent} from "./pages/cart/cart.component";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatTableModule} from "@angular/material/table";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from "@angular/material/button";
 
 
 
@@ -61,6 +62,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatDialogModule,
     MatTableModule,
     BrowserAnimationsModule,
+    MatButtonModule,
   ],
   providers: [
     SellerProductsService,
