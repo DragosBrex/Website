@@ -5,8 +5,10 @@ import { Product } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductsService } from 'src/app/services/products.service';
 import { Router } from '@angular/router';
-import { delay } from 'rxjs';
+import {delay, Subscription} from 'rxjs';
 import { NgFor } from '@angular/common';
+import {HttpClient} from "@angular/common/http";
+import {loadStripe} from "@stripe/stripe-js";
 
 @Component({
   selector: 'app-cart',
@@ -19,8 +21,17 @@ export class CartComponent {
  pHistory: Product[] = [];
  product: Product | undefined;
  show: boolean = true;
+ displayedColumns: Array<string> = [
+   'product',
+   'name',
+   'price',
+   'quantity',
+   'total',
+   'action'
+ ]
 
- constructor(private router: Router, private cartService: CartService, private productService: ProductsService){}
+  cartSubscription: Subscription | undefined;
+ constructor(private router: Router, private cartService: CartService, private http: HttpClient){}
 
 toggleShow()
 {
@@ -58,9 +69,9 @@ placeOrder()
       console.error('Error submiting the order', error);
       window.location.reload();
     }
-    
+
   );
-  
+
 }
 
  ngOnInit()
@@ -74,4 +85,32 @@ placeOrder()
   .subscribe((result: CartResponse[]) => (this.cartHistory = result));
  }
 
+  getTotal(items: CartResponse[]): number {
+    return items.length;
+  }
+
+  /*
+  onAddQuantity(item: CartResponse): void {
+    this.cartService.addToCart(item);
+  }
+  */
+
+
+  onRemoveFromCart(item: CartResponse): void {
+    this.deleteProduct(item);
+  }
+
+  /*
+  onRemoveQuantity(item: CartResponse): void {
+    this.cartService.removeQuantity(item);
+  }
+  */
+
+  onClearCart(): void {
+    this.carts.forEach(c=>this.deleteProduct(c));
+  }
+
+  onCheckout():void {
+
+  }
 }

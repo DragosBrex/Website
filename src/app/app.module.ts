@@ -28,6 +28,18 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatTableModule} from "@angular/material/table";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from "@angular/material/button";
+import {MatCardModule} from "@angular/material/card";
+import {MatGridListModule} from "@angular/material/grid-list";
+import {MatInputModule} from "@angular/material/input";
+import {MatIconModule} from "@angular/material/icon";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatBadgeModule} from "@angular/material/badge";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import { ProductsHeaderComponent } from './pages/product-page/products-header/products-header.component';
+import { FiltersComponent } from './components/filters/filters.component';
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatListModule} from "@angular/material/list";
 
 
 
@@ -51,6 +63,8 @@ import {MatButtonModule} from "@angular/material/button";
     DeleteDialogComponent,
     AboutProductComponent,
     CartComponent,
+    ProductsHeaderComponent,
+    FiltersComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +77,16 @@ import {MatButtonModule} from "@angular/material/button";
     MatTableModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatCardModule,
+    MatGridListModule,
+    MatInputModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatBadgeModule,
+    MatSidenavModule,
+    MatExpansionModule,
+    MatListModule,
   ],
   providers: [
     SellerProductsService,

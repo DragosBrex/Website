@@ -9,6 +9,8 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductComponent
 {
 
+  @Input() fullWidthMode = false;
+
   @Input() name! : string;
   @Input() description! : string;
   @Input() price! : number;

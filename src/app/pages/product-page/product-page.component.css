@@ -6,3 +6,8 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+.example-form-field {
+  width: 200px;
+  display: flex;
+}

@@ -1,4 +1,57 @@
+<mat-card [ngClass]="{ 'text-center': !fullWidthMode }">
+  <div [ngClass]="{ flex: fullWidthMode }">
+    <img
+      class="mb-1 mx-auto"
+      [ngClass]="{ 'h-[200px]': !fullWidthMode, 'h-[360px]': fullWidthMode }"
+      src="https://via.placeholder.com/150"
+    />
+    <div
+      class="w-full"
+      [ngClass]="{ 'px-8 flex flex-col justify-between': fullWidthMode }"
+    >
+      <div>
+        <h5>Category</h5>
+        <p
+          class="truncate hover:whitespace-normal"
+          [ngClass]="{ truncate: !fullWidthMode }"
+        >
+          {{ name }}
+        </p>
+        <p *ngIf="fullWidthMode">
+          {{description }}
+        </p>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-red-400">{{ price | currency }}</span>
+        <button routerLink="/products/{{id}}">
+          <mat-icon class="text-gray-500">shopping_cart</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</mat-card>
+<!--
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{ name }}</mat-card-title>
+    <mat-card-subtitle> <p>Seller: {{ seller }}</p></mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="assets/product-icon.png" alt="Product" style="width: 300px">
+  <mat-card-content>
+    <p>{{ description }}</p>
+    <p>Quantity: {{ quantity }}</p>
+  </mat-card-content>
 
+    <mat-card-actions>
+      <button color="primary" mat-raised-button routerLink="/products/{{id}}">Buy</button>
+      <h3 style="margin-top: 15px; margin-left: 20px">Price:<b> {{ price }} RON</b></h3>
+    </mat-card-actions>
+
+
+</mat-card>
+-->
+
+<!--
 <div class="product">
   <a routerLink="/products/{{id}}">
     <h2>{{ name }}</h2>
@@ -8,3 +61,4 @@
     <p>Seller: {{ seller }}</p>
   </a>
 </div>
+-->

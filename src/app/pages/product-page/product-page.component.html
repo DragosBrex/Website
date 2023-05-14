@@ -1,11 +1,51 @@
-<div>
-  <product-description
+<mat-drawer-container
+  [autosize]="true"
+  class="min-h-full max-w-7xl mx-auto border-x"
+>
+  <mat-drawer mode="side" opened class="p-6">
+    <app-filters (showCategory)="onShowCategory($event)"></app-filters>
+  </mat-drawer>
+  <mat-drawer-content class="p-6">
+    <app-products-header
+      (columnsCountChange)="onColumnsCountChange($event)"
+    ></app-products-header>
+    <mat-grid-list
+      *ngIf="products && products.length"
+      gutterSize="16"
+      [cols]="cols"
+      [rowHeight]="rowHeight"
+    >
+      <mat-grid-tile *ngFor="let product of products">
+        <div class="w-full">
+          <product-description
+             [fullWidthMode]="cols ===1"
+             [name]="product.name"
+             [description]="product.description"
+             [price]="product.price"
+             [quantity]="product.quantity"
+             [seller]="product.seller.name!"
+             [id]="product.id!"
+          ></product-description>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+
+<!--
+<mat-grid-list cols="3" rowHeight="1:1">
+  <mat-grid-tile
     *ngFor="let product of products"
-    [name]="product.name"
-    [description]="product.description"
-    [price]="product.price"
-    [quantity]="product.quantity"
-    [seller]="product.seller.name!"
-    [id]="product.id!"
-  ></product-description>
-</div>
+  >
+    <product-description
+      [name]="product.name"
+      [description]="product.description"
+      [price]="product.price"
+      [quantity]="product.quantity"
+      [seller]="product.seller.name!"
+      [id]="product.id!"
+    ></product-description>
+  </mat-grid-tile>
+</mat-grid-list>
+-->

@@ -19,5 +19,7 @@
     transform: rotate(100deg);
   }
 }
-
+.example-card {
+  max-width: 400px;
+}
 

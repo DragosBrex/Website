@@ -21,6 +21,7 @@ const routes: Routes = [
     { path: 'cart', component: CartComponent},
     { path: 'myproducts', component: MyproductsComponent, canActivate: [RoleGuardGuard], data: { role: ['Seller']} },
     { path: 'seller/page', component: SellerPageComponent, canActivate: [RoleGuardGuard], data: { role: ['Seller']} },
+    { path: 'add-product', component: AddProductComponent, canActivate: [RoleGuardGuard], data: { role: ['Seller']} },
     { path: 'admin/page', component: AdminPageComponent, canActivate: [RoleGuardGuard], data: { role: ['Admin']} },
     { path: 'products/:productId', component: AboutProductComponent },
     {
