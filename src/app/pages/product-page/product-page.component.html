@@ -8,6 +8,8 @@
   <mat-drawer-content class="p-6">
     <app-products-header
       (columnsCountChange)="onColumnsCountChange($event)"
+      (sortChange)="onSortChange($event)"
+      (searchEmitter)="onSearchChange($event)"
     ></app-products-header>
     <mat-grid-list
       *ngIf="products && products.length"

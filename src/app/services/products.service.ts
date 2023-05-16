@@ -18,6 +18,10 @@ export class ProductsService {
     return this.http.get<Product[]>(this.url);
   }
 
+  public getPostsBySearch(search:string, sort:string): Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.url}?Search=${search}&Direction=${sort}&Column=Price`);
+  }
+
   public getPostsById(ProductId: string): Observable<Product> {
     return this.http.get<Product>(`${this.url}/${ProductId}`);
   }

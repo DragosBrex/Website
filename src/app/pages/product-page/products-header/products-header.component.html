@@ -22,6 +22,7 @@
           <button (click)="onItemsUpdated(36)" mat-menu-item>36</button>
         </mat-menu>
       </div>
+
       <button (click)="onColumnsUpdated(1)">
         <mat-icon>view_list</mat-icon>
       </button>
@@ -32,5 +33,14 @@
         <mat-icon>view_comfy</mat-icon>
       </button>
     </div>
+  </div>
+  <div class="mb-4">
+    <label for="search" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Search</label>
+    <input type="text" id="search"
+           name="search"
+           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+           [(ngModel)]="search"
+           (keydown.enter)="onSearchEnter()">
+    <button mat-raised-button (click)="onSearchEnter()">Search</button>
   </div>
 </mat-card>
