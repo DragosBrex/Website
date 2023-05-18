@@ -29,7 +29,7 @@ export class SellerProductsService
     console.log(body);
 
     // @ts-ignore
-    return this.http.post<Product>(`${this.url}/${this.seller.id}`, body, { headers: headers }).pipe().subscribe();
+    return this.http.post<Product>(`${this.url}/${this.seller.id}`, body, { headers: headers });
   }
 
   public getProductsBySellerId(sellerId: string | undefined): Observable<Product[]> {

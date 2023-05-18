@@ -86,7 +86,15 @@ placeOrder()
  }
 
   getTotal(items: CartResponse[]): number {
-    return items.length;
+
+   let total = 0;
+   for (var i of items)
+   {
+      // @ts-ignore
+     total += i.product?.price;
+   }
+
+   return total;
   }
 
   /*

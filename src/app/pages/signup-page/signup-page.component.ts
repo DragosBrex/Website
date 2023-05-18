@@ -24,10 +24,12 @@ export class SignupPageComponent {
   onSubmit() {
     if(this.password != this.confirmPassword)
     {
-      this.passwordMessage += "password did not match with confirm password";
+      this.passwordMessage = "password did not match with confirm password";
       this.confirmPassword='';
       return;
     }
+    this.passwordMessage ='';
+
 
     let user = new UserRequest();
     user.email = this.email;
@@ -35,9 +37,9 @@ export class SignupPageComponent {
     user.name = this.username;
     user.sellerRequest = this.sellerRequest;
 
-    this.authService.signup(user).pipe().subscribe(u=>
+    this.authService.signup(user).subscribe(u=>
     {
-      console.log(`user: \n${u.id} \n${u.name} \n${u.email} \n${u.roles} `);
+      //console.log(`user: \n${u.id} \n${u.name} \n${u.email} \n${u.roles} `);
       this.router.navigate(['home']).then(() => {window.location.reload();});
     },
     error=>

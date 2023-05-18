@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {SellerProductsService} from "../../services/seller-product.service";
 import {Router} from "@angular/router";
 import {Location} from "@angular/common";
+import {ProductRequest} from "../../models/productsRequest";
 
 @Component({
   selector: 'app-add-product',
@@ -23,20 +24,19 @@ export class AddProductComponent implements OnInit {
               private location: Location){}
 
   onSubmit() {
-    const newProduct = {
-      name: this.name,
-      description: this.description,
-      isNegotiable : this.isNegotiable,
-      price: this.price,
-      quantity: this.quantity,
-      display : this.display
-    };
+    const newProduct = new ProductRequest()
+    newProduct.name = this.name;
+    newProduct.description = this.description;
+    newProduct.isNegotiable = this.isNegotiable;
+    newProduct.price = this.price;
+    newProduct.quantity = this.quantity;
+    newProduct.display = this.display;
 
     this.service.addPost(newProduct).subscribe((data) =>
     {
       alert('Product added successfully!');
       console.log(data);
-      this.router.navigate(['seller/page']).then(() => {window.location.reload();});
+      this.router.navigate(['myproducts']).then(() => {window.location.reload();});
     })
 
     this.ngOnInit();

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/models/product';4
 import { ProductsService } from 'src/app/services/products.service';
-import { ActivatedRoute, Route } from '@angular/router';
+import {ActivatedRoute, Route, Router} from '@angular/router';
 import { Cart } from 'src/app/models/Cart';
 import { UserService } from 'src/app/services/user.serice';
 import { CartService } from 'src/app/services/cart.service';
@@ -15,11 +15,18 @@ export class AboutProductComponent implements OnInit
 {
   product: Product | undefined;
   id?: string;
+  sellerid?:string;
+  userid?:string;
 
   //@Input() cart?: Cart;
 
-  constructor(private serviceP: ProductsService,private service: CartService, private route: ActivatedRoute, private userService: UserService) {}
+  constructor(private serviceP: ProductsService,
+              private service: CartService,
+              private route: ActivatedRoute,
+              protected userService: UserService,
+              private router: Router) {}
 
+  protected readonly UserService = UserService;
   onSubmit()
   {
     const cart = new Cart;
@@ -46,11 +53,19 @@ export class AboutProductComponent implements OnInit
     .getPostsById(this.id!)
     .subscribe((result: Product) => {
       this.product = result;
+      this.sellerid = result.seller.id;
+      this.userid = this.userService.getCurrentUser()?.id;
     });
 
-    console.log("Numele PRodusului: " + this.product?.name)
+    console.log("Numele Produsului: " + this.product?.name)
 
   }
 
-
+  RedirectToLogin()
+  {
+    this.router.navigate(['login']).then(() => {window.location.reload();});
+  }
+  EditProduct() {
+    alert("edit product?");
+  }
 }

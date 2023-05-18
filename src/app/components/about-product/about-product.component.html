@@ -2,7 +2,7 @@
   <div class="product-details">
     <p class="header">{{ product?.name }}</p>
     <div class="photo">
-      <img src="assets/empty.jpg" style="width: 300px; height: 300px;">
+      <img src="assets/empty.jpg" style="width: 300px">
     </div>
   </div>
 
@@ -15,18 +15,18 @@
       <p>Seller: {{ product?.seller?.name }}</p>
     </div>
 
-    <div class="product-buttons-container">
+    <div *ngIf="this.sellerid == this.userid" class="product-buttons-container">
       <div class="product-buttons">
-        <button>Add to Cart</button>
-        <button class="edit-main" (click)="onSubmit()">Edit Product</button>
-
-
+        <button class="edit-main" mat-raised-button color="accent" (click)="EditProduct()">Edit Product</button>
       </div>
     </div>
   </div>
 </div>
 
-<div>
-    <button (click)="onSubmit()">Add to cart</button>
+<div *ngIf="this.userService.getCurrentUser() != undefined && this.userid != this.sellerid">
+    <button (click)="onSubmit()" mat-button color="primary">Add to cart</button>
+</div>
+<div *ngIf="this.userService.getCurrentUser() == undefined">
+  <button routerLink="login" mat-button color="primary" (click)="RedirectToLogin()" >Add to cart</button>
 </div>
 
