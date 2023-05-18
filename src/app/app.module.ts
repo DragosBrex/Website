@@ -41,7 +41,8 @@ import { FiltersComponent } from './components/filters/filters.component';
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatListModule} from "@angular/material/list";
 import { ProductTableComponent } from './components/product-table/product-table.component';
-
+import { InputTextareaModule} from "primeng/inputtextarea";
+import {InputTextModule} from "primeng/inputtext";
 
 
 @NgModule({
@@ -89,6 +90,7 @@ import { ProductTableComponent } from './components/product-table/product-table.
     MatSidenavModule,
     MatExpansionModule,
     MatListModule,
+    InputTextModule,
   ],
   providers: [
     SellerProductsService,

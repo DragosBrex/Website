@@ -3,6 +3,7 @@ import {AuthService} from "../../services/auth.service";
 import {UserRequest} from "../../models/UserRequest";
 import {Router} from "@angular/router";
 import {error} from "@angular/compiler-cli/src/transformers/util";
+import {InputTextModule} from "primeng/inputtext";
 
 @Component({
   selector: 'app-signup-page',
