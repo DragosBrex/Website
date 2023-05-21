@@ -1,0 +1,18 @@
+.button1 {
+  color: white;
+  background-color: #3b80f2;
+  border: none;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-family: "Inter", sans-serif;
+  /*margin: 30px;*/
+  font-weight: bold;
+  /*text-transform: uppercase;*/
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button1:hover {
+  background-color: #2f66c0;
+}

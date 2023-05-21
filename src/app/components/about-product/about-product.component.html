@@ -1,32 +1,31 @@
 <div class="product">
   <div class="product-details">
     <p class="header">{{ product?.name }}</p>
+
     <div class="photo">
-      <img src="assets/empty.jpg" style="width: 300px">
+      <img src="assets/square.jpg">
     </div>
   </div>
 
   <div class="product-info">
-
     <div class="info-right">
-      <p>{{ product?.description }}</p>
-      <p>Quantity: {{ product?.quantity }}</p>
-      <p>{{ product?.price }} RON</p>
-      <p>Seller: {{ product?.seller?.name }}</p>
+      <p >Seller Name: <span class="seller" style="color:#3b80f2;">{{ product?.seller?.name }}</span></p>
+      <p class="quantity">Quantity: {{ product?.quantity }}</p>
+      <p style="color:gray;">Fixed Price:</p>
+      <p class="price">{{ product?.price }} RON</p>
+
+      <p style="color:gray;">Description:</p>
+      <p class="description">{{ product?.description }}</p>
     </div>
 
-    <div *ngIf="this.sellerid == this.userid" class="product-buttons-container">
+    <div *ngIf="this.userService.getCurrentUser() != undefined && this.userid != this.sellerid" class="product-buttons-container">
       <div class="product-buttons">
-        <button class="edit-main" mat-raised-button color="accent" (click)="EditProduct()">Edit Product</button>
+        <button class="add-to-cart" mat-raised-button color="primary" (click)="onSubmit()">Add to Cart</button>
       </div>
+    </div>
+
+    <div *ngIf="this.userService.getCurrentUser() == undefined">
+      <button routerLink="login" mat-raised-button color="primary" (click)="RedirectToLogin()">Add to Cart</button>
     </div>
   </div>
 </div>
-
-<div *ngIf="this.userService.getCurrentUser() != undefined && this.userid != this.sellerid">
-    <button (click)="onSubmit()" mat-button color="primary">Add to cart</button>
-</div>
-<div *ngIf="this.userService.getCurrentUser() == undefined">
-  <button routerLink="login" mat-button color="primary" (click)="RedirectToLogin()" >Add to cart</button>
-</div>
-

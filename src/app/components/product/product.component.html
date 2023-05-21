@@ -10,10 +10,11 @@
       [ngClass]="{ 'px-8 flex flex-col justify-between': fullWidthMode }"
     >
       <div>
-        <h5>Category</h5>
+<!--        <h5>Category</h5>-->
         <p
           class="truncate hover:whitespace-normal"
           [ngClass]="{ truncate: !fullWidthMode }"
+          style="display:flex; font-size: 14px; margin-left: 20px; padding-top: 30px"
         >
           {{ name }}
         </p>
@@ -22,9 +23,9 @@
         </p>
       </div>
       <div class="flex justify-between">
-        <span class="textPrice">{{ price | currency }}</span>
+        <span class="textPrice" style="color: #3b80f2; font-family: Inter; font-size: 20px; font: bold">{{ price | currency }}</span>
         <button routerLink="/products/{{id}}">
-          <mat-icon style="margin-right: 20px" class="text-gray-500">shopping_cart</mat-icon>
+          <mat-icon style="margin-right: 20px" class="text-blue-400">shopping_cart</mat-icon>
         </button>
       </div>
     </div>
