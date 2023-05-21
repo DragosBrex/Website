@@ -22,9 +22,9 @@
         </p>
       </div>
       <div class="flex justify-between">
-        <span class="text-red-400">{{ price | currency }}</span>
+        <span class="textPrice">{{ price | currency }}</span>
         <button routerLink="/products/{{id}}">
-          <mat-icon class="text-gray-500">shopping_cart</mat-icon>
+          <mat-icon style="margin-right: 20px" class="text-gray-500">shopping_cart</mat-icon>
         </button>
       </div>
     </div>

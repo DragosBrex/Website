@@ -1,24 +1,28 @@
 <!--<app-add-product></app-add-product>-->
 <div>
-<button class="add-button" mat-raised-button color="primary" (click)="onAddProduct()">
-  Add
+<button class="button1" (click)="onAddProduct()">
+  Add New Product
 </button>
-  <span class="add-product-text">Add New Product</span>
+<!--  <span class="add-product-text">Add New Product</span>-->
 </div>
 
 <div>
-  <h2>Acestea sunt produsele tale:</h2>
-  <div *ngFor="let product of products">
-    <product-description
-      [name]="product.name"
-      [description]="product.description"
-      [price]="product.price"
-      [quantity]="product.quantity"
-    ></product-description>
+  <h2 style="margin: 25px">Acestea sunt produsele tale:</h2>
 
-    <button mat-raised-button color="accent" (click)="deleteProduct(product)">Delete</button>
+  <div class="productsMine">
+    <div class="product-item" *ngFor="let product of products">
+      <product-description
+        [name]="product.name"
+        [description]="product.description"
+        [price]="product.price"
+        [quantity]="product.quantity"
+      ></product-description>
 
+      <button class="buttondel" (click)="deleteProduct(product)">Delete</button>
+    </div>
   </div>
+
+
 </div>
 
 

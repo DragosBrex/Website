@@ -9,13 +9,21 @@ h2 {
 img {
   max-width: 100%;
   height: auto;
+  margin-top: 15px;
+  border-radius: 5px;
 }
 .example-card {
   max-width: 300px;
   min-width: 300px;
+  border-radius: 5px;
 }
 
 .example-header-image {
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
+}
+
+.textPrice{
+  font-size: 20px;
+  margin: 15px;
 }

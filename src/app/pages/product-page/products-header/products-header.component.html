@@ -1,7 +1,7 @@
 <mat-card class="mb-4">
   <div class="flex justify-between">
     <div>
-      <button mat-button [matMenuTriggerFor]="sortByMenu">
+      <button mat-button style="margin: 5px" [matMenuTriggerFor]="sortByMenu">
         Sort by {{ sort }}
         <mat-icon>expand_more</mat-icon>
       </button>
@@ -34,13 +34,16 @@
       </button>
     </div>
   </div>
+
   <div class="mb-4">
-    <label for="search" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Search</label>
-    <input type="text" id="search"
-           name="search"
-           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-           [(ngModel)]="search"
-           (keydown.enter)="onSearchEnter()">
-    <button mat-raised-button (click)="onSearchEnter()">Search</button>
+    <label style="margin: 10px;" for="search" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Search</label>
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <input style="margin-right: 10px; max-width: 400px;" type="text" id="search" name="search"
+             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+             [(ngModel)]="search" (keydown.enter)="onSearchEnter()">
+      <button style="margin-left: 10px;" mat-raised-button (click)="onSearchEnter()">Search</button>
+    </div>
+
+
   </div>
 </mat-card>
