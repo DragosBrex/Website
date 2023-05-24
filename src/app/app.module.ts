@@ -41,6 +41,7 @@ import { FiltersComponent } from './components/filters/filters.component';
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatListModule} from "@angular/material/list";
 import { ProductTableComponent } from './components/product-table/product-table.component';
+import { CartHistoryComponent } from './components/cart-history/cart-history.component';
 
 
 
@@ -67,6 +68,7 @@ import { ProductTableComponent } from './components/product-table/product-table.
     ProductsHeaderComponent,
     FiltersComponent,
     ProductTableComponent,
+    CartHistoryComponent,
   ],
   imports: [
     BrowserModule,

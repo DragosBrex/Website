@@ -111,6 +111,6 @@ placeOrder()
   }
 
   onCheckout():void {
-
+    this.placeOrder();
   }
 }

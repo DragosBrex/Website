@@ -12,6 +12,7 @@ import {AddProductComponent} from "./components/add-product/add-product.componen
 import {AdminPageComponent} from "./pages/admin-page/admin-page.component";
 import { AboutProductComponent } from './components/about-product/about-product.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { CartHistoryComponent } from './components/cart-history/cart-history.component';
 
 const routes: Routes = [
     { path: '', component:ProductPageComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
     { path: 'login', component: LoginPageComponent },
     { path: 'signup', component: SignupPageComponent },
     { path: 'cart', component: CartComponent},
+    { path: 'cart/order-history', component: CartHistoryComponent},
     { path: 'myproducts', component: MyproductsComponent, canActivate: [RoleGuardGuard], data: { role: ['Seller']} },
     { path: 'seller/page', component: SellerPageComponent, canActivate: [RoleGuardGuard], data: { role: ['Seller']} },
     { path: 'add-product', component: AddProductComponent, canActivate: [RoleGuardGuard], data: { role: ['Seller']} },
