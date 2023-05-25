@@ -25,7 +25,7 @@
     </div>
 
     <div *ngIf="this.userService.getCurrentUser() == undefined">
-      <button routerLink="login" mat-raised-button color="primary" (click)="RedirectToLogin()">Add to Cart</button>
+      <button routerLink="login" mat-raised-button color="primary" style="max: 60px; padding-right: 50px;" (click)="RedirectToLogin()">Add to Cart</button>
     </div>
   </div>
 </div>
